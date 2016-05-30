@@ -1,2 +1,2 @@
-# Big Project
+# theme-name
 nuf said

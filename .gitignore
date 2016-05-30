@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/osx,vagrant,sublimetext,node,codekit,sass,grunt,wordpress
 
 ### OSX ###
@@ -125,6 +124,11 @@ dist/
 
 ### WordPress ###
 *.log
+=======
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
@@ -147,3 +151,5 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+/readme.html
+/license.txt
