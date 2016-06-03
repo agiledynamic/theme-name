@@ -1,11 +1,9 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var input = 'dev/sass/**/*.scss';
-var output = '';
-
-
 var autoprefixer = require('gulp-autoprefixer');
 
+var input = 'dev/sass/**/*.scss';
+var output = '';
 
 gulp.task('watch', function(){
 	gulp.watch(input, ['sass']);
