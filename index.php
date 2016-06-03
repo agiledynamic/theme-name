@@ -11,23 +11,40 @@
  *
  * @package theme-name
  */
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-get_header(); ?>
+<!-- Bootstrap v4 Alpha -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>
 
-<main>
-	<figure class="header-frontpage">
-		
-	</figure>
 
-	<article class="about-frontpage">
-		
-	</article>
+<?php wp_head(); ?>
+</head>
 
-	<section class="showcase-frontpage">
-		
-	</section>
-</main>
+<body <?php body_class(); ?>>
+	<div id="page" class="site">
+		<header id="masthead" class="site-header" role="banner">
+			
+		</header><!-- #masthead -->
 
-<?php
-get_sidebar();
-get_footer();
+		<div id="content" class="site-content">
+
+			
+
+		</div><!-- #content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<?php wp_footer(); ?>
+
+</body>
+</html>
