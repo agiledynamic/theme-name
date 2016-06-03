@@ -9,9 +9,3 @@
 @media all and (min-width: 1024px) {
 	@import 'desktop';
 }
-body {
-	.wrapper {
-		width: percentage(3/7);
-		display: flex;
-	}
-}
