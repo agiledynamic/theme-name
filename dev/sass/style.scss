@@ -1,0 +1,17 @@
+@import 'reset';
+@import 'mixins';
+@import 'typography';
+
+@import 'mobile';
+@media all and (min-width: 768px) {
+	@import 'tablet';
+}
+@media all and (min-width: 1024px) {
+	@import 'desktop';
+}
+body {
+	.wrapper {
+		width: percentage(3/7);
+		display: flex;
+	}
+}
