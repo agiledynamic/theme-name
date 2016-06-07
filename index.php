@@ -20,7 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap v4 Alpha -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
 
 <?php wp_head(); ?>
 </head>
@@ -75,10 +75,49 @@
 					</a>
 				</div>
 			</div>
-			<section> <!-- content -->
-				<div class="container">
-					<div class="row"></div>
-				</div>
+			<section class="container"> <!-- content -->
+			<!-- START THE FEATURETTES -->
+
+				  <hr class="featurette-divider">
+
+				  <div class="row featurette">
+					<div class="col-md-7">
+					  <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+					</div>
+					<div class="col-md-5">
+					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
+					</div>
+				  </div>
+
+				  <hr class="featurette-divider">
+
+				  <div class="row featurette">
+					<div class="col-md-7 col-md-push-5">
+					  <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+					</div>
+					<div class="col-md-5 col-md-pull-7">
+					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
+					</div>
+				  </div>
+
+				  <hr class="featurette-divider">
+
+				  <div class="row featurette">
+					<div class="col-md-7">
+					  <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+					</div>
+					<div class="col-md-5">
+					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
+					</div>
+				  </div>
+
+				  <hr class="featurette-divider">
+
+				  <!-- /END THE FEATURETTES -->
+
 			</section>
 			
 
@@ -92,7 +131,7 @@
 	<?php wp_footer(); ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>
 
 
 </body>
