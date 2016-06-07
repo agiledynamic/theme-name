@@ -19,18 +19,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap v4 Alpha -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
-
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-	<div id="page" class="site">
-		<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+	<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+		<div class="container">
 			<a class="navbar-brand" href="#">Navbar</a>
-			<button class="navbar-toggler hidden-sm-up " type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+			<button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			&#9776;
 			</button>
 			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
@@ -49,7 +46,9 @@
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</div>
+	</nav>
+	<div id="page" class="site">
 		<header id="masthead" class="site-header" role="banner">
 			
 		</header><!-- #masthead -->
