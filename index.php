@@ -28,15 +28,30 @@
 <body <?php body_class(); ?>>
 
 	<div id="page" class="site">
-		<header id="masthead" class="site-header" role="banner">
-			<div class="fix-to-top"> <!-- fix header to top -->
-				<div class="container"> <!-- margin right/left auto, padding left/right 15 -->
-					<button></button> <!-- logo -->
-					<nav> <!-- menu med ul -->
-						
-					</nav>
-				</div>
+		<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler hidden-sm-up " type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+			&#9776;
+			</button>
+			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+				<ul class="nav navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Features</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Pricing</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+				</ul>
 			</div>
+		</nav>
+		<header id="masthead" class="site-header" role="banner">
+			
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content" role="document">
