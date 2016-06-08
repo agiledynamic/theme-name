@@ -414,3 +414,6 @@ textarea {
 
 .site {
   margin: 54px 0 0 0; }
+
+.featurette {
+  position: relative; }

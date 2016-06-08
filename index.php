@@ -91,46 +91,45 @@
 			</div>
 			<section class="container"> <!-- content -->
 			<!-- START THE FEATURETTES -->
+				<hr class="featurette-divider">
 
-				  <hr class="featurette-divider">
+				<?php 
+				$stickyposts = get_option( 'sticky_posts' );
 
-				  <div class="row featurette">
-					<div class="col-md-7">
-					  <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				if ( $stickyposts ) {
+					$args = [
+				        'post_type'           => 'post',
+				        'post__in'            => $stickyposts,
+				        'ignore_sticky_posts' => 1
+				    ];
+
+				    $the_query = new WP_Query($args);
+				} else {
+					$the_query = new WP_Query( 'posts_per_page=5' );
+				}
+			 
+				?>
+				<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+
+				<div class="row featurette">
+					<div class="col-md-7 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-push-5';} ?>">
+						<a href="<?php the_permalink() ?>">
+							<h2 class="featurette-heading"><?php the_title(); ?></h2>
+						</a>
+
+						<p class="lead">
+							<?php the_excerpt(__('(more…)')); ?>
+						</p>
 					</div>
-					<div class="col-md-5">
-					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
+					<div class="col-md-5 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-pull-7';} ?> square">
+						<?php the_post_thumbnail( 'full', array( 'class' => 'featurette-image img-fluid center-block', 'alt' => 'Post feautred image' ) ); ?>
 					</div>
-				  </div>
+				</div>
+				<hr class="featurette-divider">
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
 
-				  <hr class="featurette-divider">
-
-				  <div class="row featurette">
-					<div class="col-md-7 col-md-push-5">
-					  <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-					</div>
-					<div class="col-md-5 col-md-pull-7">
-					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
-					</div>
-				  </div>
-
-				  <hr class="featurette-divider">
-
-				  <div class="row featurette">
-					<div class="col-md-7">
-					  <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-					  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-					</div>
-					<div class="col-md-5">
-					  <img class="featurette-image img-fluid center-block" src="http://placekitten.com/g/500/500" alt="Generic placeholder image">
-					</div>
-				  </div>
-
-				  <hr class="featurette-divider">
-
-				  <!-- /END THE FEATURETTES -->
+			<!-- /END THE FEATURETTES -->
 
 			</section>
 			
