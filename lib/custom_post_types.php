@@ -1,28 +1,5 @@
 <?php
-
-/*
-function cpt_showcase_page() {
-	$labels = array(
-
-	);
-
-	$args = array(
-		'labels'				=> $labels,
-		'description'			=> 'Your Showcase page',
-		'capability_type'		=> 'page',
-		'hierarchical'			=> true,
-		'public'				=> true,
-		'menu_postition'		=> 5,
-		'supports'				=> array(
-			'title',
-			'editor',
-			),
-	);
-
-}
-*/
-
-/* Creates a meta-box for links to project */
+/* Creates a meta-box for links to project and date */
 add_action('admin_init', 'showcase_meta_box');
 
 function showcase_meta_box(){
@@ -34,27 +11,51 @@ function showcase_meta_options(){
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return $post_id;
 
 	$custom = get_post_custom($post->ID);
-	$link = $custom['projLink'][0];
-	
-	?> 
-	<label for="projLink">Link:</label>
-	<input name="projLink" value="<?php echo $link; ?>" /> 
+	$link = $custom['proj-link'][0];
+	$date = $custom['proj-date'][0];
+
+	?>
+	<div class="inside">
+		<div class="">
+			<label for="proj-starred">
+			<input name="proj-starred" type="checkbox" id="proj-starred" value="yes" <?php if ( isset( $custom['proj-starred'] ) ) checked( $custom['proj-starred'][0], 'yes' ); ?> />
+			Show post in your carousel
+			</label>
+		</div>
+
+		<div class="">
+			<label for="proj-date">Date: </label>
+			<input name="proj-date" placeholder="YYYY-MM" value="<?php echo $date; ?>" /> <br><br>
+		</div>
+
+		<div class="">
+			<label for="proj-link">Link: </label>
+			<input name="proj-link" value="<?php echo $link; ?>" /> 
+		</div>
+	</div>
 	<?php
 }
 
-/* Saves meta link in post*/
-add_action('save_post', 'save_project_link');
+/* Saves meta box in post */
+add_action('save_post', 'save_project_meta_box');
 
-function save_project_link(){
+function save_project_meta_box(){
 	global $post;
 
 	if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 		return $post_id;
 	}else{
-		update_post_meta( $post->ID, 'projLink', $_POST['projLink']);
+		update_post_meta( $post->ID, 'proj-link', $_POST['proj-link']);
+		update_post_meta( $post->ID, 'proj-date', $_POST['proj-date']);
 	}
 
+	if( isset($_POST['proj-starred']) ){
+		update_post_meta( $post->ID, 'proj-starred', 'yes');
+	}else{
+		update_post_meta( $post->ID, 'proj-starred', '');
+	}
 }
+
 
 /* Custom Post Type for Showcase */
 add_theme_support('post-thumbnails');
@@ -99,7 +100,7 @@ function cpt_showcase() {
 									'thumbnail', 
 									'custom-fields', 
 									'page-attributes'
-									)
+								)
 	);
 
 	register_post_type( 'showcase', $args );
@@ -112,10 +113,10 @@ function project_type_taxanomy() {
 		'project-type',
 		'showcase',
 		array(
-			'hierarchical' => true, 
-			'label' => 'Project Types', 
-			'singular_label' => 'Project Type', 
-			'rewrite' => true
+			'hierarchical' 		=> true, 
+			'label' 			=> 'Project Types', 
+			'singular_label' 	=> 'Project Type', 
+			'rewrite' 			=> true
 		)
 	);
 }
@@ -132,7 +133,8 @@ function project_edit_columns($columns){
 		'title' 		=> 'Project',
 		'description'	=> 'Description',
 		'link'			=> 'Link',
-		'type'			=> 'Type of project'
+		'type'			=> 'Type of project',
+		'proj-date'		=> 'Date of project'
 		);
 
 	return $columns;
@@ -143,6 +145,7 @@ add_action('manage_posts_custom_column', 'project_custom_columns');
 function project_custom_columns($column) {
 
 	global $post;
+	$custom = get_post_custom();
 
 	switch($column){
 
@@ -150,11 +153,13 @@ function project_custom_columns($column) {
 			the_excerpt();
 			break;
 		case 'link':
-			$custom = get_post_custom();
-			echo $custom['projLink'][0];
+			echo $custom['proj-link'][0];
 			break;
 		case 'type':
 			echo get_the_term_list($post->ID, 'project-type', '', ', ','');
+			break;
+		case 'proj-date':
+			echo $custom['proj-date'][0];
 			break;
 	}
 }
