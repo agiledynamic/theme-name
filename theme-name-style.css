@@ -417,3 +417,10 @@ textarea {
 
 .featurette {
   position: relative; }
+
+/* single - showcase */
+.showcase-item {
+  margin-top: 5px;
+  text-align: center; }
+  .showcase-item .img img {
+    margin-top: 5px; }
