@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 
-	<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+	<nav class="navbar navbar-fixed-top navbar-light">
 		<div class="container">
 			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">

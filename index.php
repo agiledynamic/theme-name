@@ -20,41 +20,54 @@
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content" role="document">
-			<div id="frontpage-carousel" class="carousel slide" data-ride="carousel"> <!-- fullscreen -->
+			
+			<!-- CAROUSEL -->
+			<section id="frontpage-carousel-01" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover" data-wrap="true">
+				<?php 
+				$stickyposts = get_option( 'sticky_posts' );
+				$slide = 1;
+				if ( $stickyposts ) {
+					$args = [
+				        'post_type'           => 'post',
+				        'post__in'            => $stickyposts,
+				        'ignore_sticky_posts' => 1
+				    ];
+				    $carousel_query = new WP_Query($args);
+				} else {
+					$carousel_query = new WP_Query( 'posts_per_page=5' );
+				}
+				?>
 				<ol class="carousel-indicators">
-					<li data-target="#frontpage-carousel" data-slide-to="0 active"></li>
-					<li data-target="#frontpage-carousel" data-slide-to="1"></li>
-					<li data-target="#frontpage-carousel" data-slide-to="2"></li>
+					<?php while ($carousel_query -> have_posts()) : $carousel_query -> the_post(); ?>
+						<li data-target="#frontpage-carousel-01" data-slide-to="<?php echo $carousel_query->current_post; ?>" class="<?php if ($slide == 1) echo 'active'; ?>"></li>
+					<?php endwhile;?>
 				</ol>
 				<div class="carousel-inner" role="listbox">
-					<div class="carousel-item active">
-						<img class="first-slide" src="" alt="First slide">
-						<div class="container">
-							<div class="carousel-caption text-xs-left">
-								<p> 
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit enim quia cum cupiditate, earum qui voluptates ad vero, ab odit perferendis! Amet distinctio accusantium, minima assumenda. Similique necessitatibus quam maxime.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img class="second-slide" src="" alt="Second slide">
-						<div class="container">
-							<div class="carousel-caption text-xs-right">
-								<p> 
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit enim quia cum cupiditate, earum qui voluptates ad vero, ab odit perferendis! Amet distinctio accusantium, minima assumenda. Similique necessitatibus quam maxime.
-								</p>
-							</div>
-						</div>
-					</div>
-					<a class="left carousel-control" href="frontpage-carousel" role="button" data-slide="prev">
-						prev
-					</a>
-					<a class="right carousel-control" href="frontpage-carousel" role="button" data-slide="next">
-						next
-					</a>
+					
+					<?php while ($carousel_query -> have_posts()) : $carousel_query -> the_post(); ?>
+					<figure class="carousel-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url() ?>');" alt="">
+						<figcaption class="carousel-caption">
+							<h3 class="theme-font-color"><?php the_title(); ?></h3>
+						</figcaption>
+					</figure>
+					<?php 
+					$slide++;
+					endwhile; 
+					wp_reset_postdata();
+					?>
 				</div>
-			</div>
+				<a class="left carousel-control" href="#frontpage-carousel-01" role="button" data-slite="prev">
+					<span class="icon-prev" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+				<a class="right carousel-control" href="#frontpage-carousel-01" role="button" data-slite="next">
+					<span class="icon-next" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</section>
+			<!-- CAROUSEL -->
+
+
 			<section class="container"> <!-- content -->
 			<!-- START THE FEATURETTES -->
 				<hr class="featurette-divider">
@@ -80,11 +93,11 @@
 				<div class="row featurette">
 					<div class="col-md-7 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-push-5';} ?>">
 						<a href="<?php the_permalink() ?>">
-							<h2 class="featurette-heading"><?php the_title(); ?></h2>
+							<h2 class="featurette-heading theme-font-color"><?php the_title(); ?></h2>
 						</a>
 
-						<p class="lead">
-							<?php the_excerpt(__('(more…)')); ?>
+						<p class="lead theme-font-color">
+							<?php echo get_the_excerpt(); ?>
 						</p>
 					</div>
 					<div class="col-md-5 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-pull-7';} ?> square">
