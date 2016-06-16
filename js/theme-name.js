@@ -7,20 +7,4 @@ jQuery(document).ready(function(jQuery) {
         'keyboard': true,
     });
 
-    jQuery('.extra-slider').on('extra:slider:moveStart', function(event, currentItem, currentIndex, previousIndex, unfilteredCurrentIndex) {
-    	console.log('hello!');
-    	/*
-		var $img = $('.slider-item');
-		TweenMax.set($img,{ backgroundSize:"cover" });
-		var freewayEaseTween = TweenMax.to($img, 10, {
-		  backgroundSize: "+=25% +=25%", 
-		  autoRound:false, 
-		  repeat:-1,
-		  yoyo:true,
-		  ease:Power1.ease0ut
-		});
-		freewayEaseTween.play();
-		*/
-    });
-
 });
