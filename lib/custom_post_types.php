@@ -19,7 +19,7 @@ function showcase_meta_options(){
 		<div class="">
 			<label for="proj-starred">
 			<input name="proj-starred" type="checkbox" id="proj-starred" value="yes" <?php if ( isset( $custom['proj-starred'] ) ) checked( $custom['proj-starred'][0], 'yes' ); ?> />
-			Show post in your carousel
+				Show post in your carousel
 			</label>
 		</div>
 
@@ -78,11 +78,12 @@ function cpt_showcase() {
 		'view_item'				=> __('View Item'),
 		'search_items'			=> __('Search Items'),
 		'not_found'				=> __('No items found'),
+		'not_found_in_trash'	=> __('Nothing found'),
+		'parent_item_colon'		=> __(''),
 		'featured_image' 		=> __('Select featured image for the Showcase'),
 		'set_featured_image' 	=> __('Select image'),
 		'remove_featured_image'	=> __('Remove image'),
 		'use_featured_image' 	=> __('Use as featured image')
-
 	);
 	$args = array(
 		'labels'				=> $labels,
@@ -90,6 +91,11 @@ function cpt_showcase() {
 		'capability_type'		=> 'post',
 		'hierarchical'			=> false,
 		'public'				=> true,
+		'publicly_queryble'		=> true,
+		'has_archive'			=> true,
+		'show_ui'				=> true,
+		'rewrite'				=> true,
+		'query_var' 			=> true,
 		'menu_postition'		=> 5,
 		'menu_icon'				=> 'dashicons-portfolio',
 		'supports'				=> array(
@@ -108,19 +114,19 @@ function cpt_showcase() {
 
 /* Taxanomies for projects. i.e. A Wordpress page  */
 /* UTVECKLA ELLER TA BORT */
-function project_type_taxanomy() {
+function project_skill_taxanomy() {
 	register_taxonomy(
-		'project-type',
+		'Skills',
 		'showcase',
 		array(
 			'hierarchical' 		=> true, 
-			'label' 			=> 'Project Types', 
-			'singular_label' 	=> 'Project Type', 
+			'label' 			=> 'Skills', 
+			'singular_label' 	=> 'Skill', 
 			'rewrite' 			=> true
 		)
 	);
 }
-add_action('init', 'project_type_taxanomy');
+add_action('init', 'project_skill_taxanomy');
 
 
 /* Makes columns in admin view */ 
@@ -133,7 +139,7 @@ function project_edit_columns($columns){
 		'title' 		=> 'Project',
 		'description'	=> 'Description',
 		'link'			=> 'Link',
-		'type'			=> 'Type of project',
+		'skill'			=> 'Skills used in project',
 		'proj-date'		=> 'Date of project'
 		);
 
@@ -155,8 +161,8 @@ function project_custom_columns($column) {
 		case 'link':
 			echo $custom['proj-link'][0];
 			break;
-		case 'type':
-			echo get_the_term_list($post->ID, 'project-type', '', ', ','');
+		case 'skill':
+			echo get_the_term_list($post->ID, 'Skills', '', ', ','');
 			break;
 		case 'proj-date':
 			echo $custom['proj-date'][0];
