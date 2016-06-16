@@ -1,5 +1,4 @@
-.featurette {
-	position: relative;
-}
-.square {
+html, body {
+	@include fontRegular;
+	font-size: 1em;
 }

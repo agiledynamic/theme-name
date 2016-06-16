@@ -1,3 +1,91 @@
-.frontpage-slider {
-  height: 100vh;
+.extra-slider {
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100vw;
+	height: 100vh;
+	.wrapper, ul, li {
+		z-index: 2;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+	}
+	li.extra-slider-first {
+		position: absolute;
+	}
+	.slider-item {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover; 
+	}
+	.slider-caption {
+		position: absolute;
+		z-index: 10;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		@include fontBold;
+		font-size: 3em;
+		text-transform: uppercase;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+	}
+	// Pagination
+	.pagination {
+		margin: 0 0 0 0;
+		position: absolute;
+		left: 50%;
+		bottom: 6px;
+		text-align: center;
+		z-index: 50;
+		width: auto;
+	}
+	.pagination a {
+		background: #FFFFFF;
+		border: 2px solid transparent;
+		color: transparent;
+		display: inline-block;
+		margin: 0 4px;
+		text-indent: 100%;
+		white-space: nowrap;
+		position: relative;
+		left: -50%;
+		width: 12px;
+		height: 12px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px;
+	}
+	.pagination a.extra-slider-link-active {
+		background-color: pink;
+	}
+	.pagination a:hover {
+		border-color: red;
+	}
+	// Navigation
+	.navigation {
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.navigation > a {
+		@extend .navigation;
+		width: 50%;
+		opacity: 0.4;
+	}
+	.navigation > a.prev {
+		right: 0;
+	}
+	.navigation > a.next {
+		left: 0;
+	}
+	.navigation > a.prev:hover {
+		background-color: pink;
+	}
+	.navigation > a.next:hover {
+		background-color: salmon;
+	}
 }

@@ -1,0 +1,21 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin fontRegular {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+}
+@mixin fontItalic {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+@mixin fontBold {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+}
