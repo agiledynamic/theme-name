@@ -41,7 +41,7 @@
 					<ul>
 					<?php while ($slider_query -> have_posts()) : $slider_query -> the_post(); ?>
 						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url() ?>');" alt="">
-							<figcaption class="slider-caption theme-font-color"><?php the_title(); ?></figcaption>
+							<figcaption class="slider-caption h1-font secondary-color"><?php the_title(); ?></figcaption>
 						</li>
 					<?php 
 					$slide++;
@@ -51,8 +51,8 @@
 					</ul>
 				</figure>
 				<div class="navigation">
-					<a href="#" class="prev">Previous</a>
-					<a href="#" class="next">Next</a>
+					<a href="#" class="prev"></a>
+					<a href="#" class="next"></a>
 				</div>
 				<div class="pagination"></div>
 			</section>
@@ -80,14 +80,13 @@
 			 
 				?>
 				<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-
 				<div class="row featurette">
-					<div class="col-md-7 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-push-5';} ?>">
+					<div class="col-md-7 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-push-5';} ?> secondary-color-bg">
 						<a href="<?php the_permalink() ?>">
-							<h2 class="featurette-heading theme-font-color"><?php the_title(); ?></h2>
+							<h2 class="featurette-heading h2-font primary-color"><?php the_title(); ?></h2>
 						</a>
 
-						<p class="lead theme-font-color">
+						<p class="lead paragraph-font accent-color-one">
 							<?php echo get_the_excerpt(); ?>
 						</p>
 					</div>
