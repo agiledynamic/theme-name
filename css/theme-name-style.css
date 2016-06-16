@@ -407,8 +407,12 @@ textarea {
   .navbar-nav .nav-link + .nav-link {
     margin-left: 1rem; } }
 
+/* DEBUGGING */
 .featurette {
   position: relative; }
+
+h2, .col-xs-12 {
+  text-align: center; }
 
 /* single - showcase */
 .showcase-item {
