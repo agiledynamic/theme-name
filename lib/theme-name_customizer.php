@@ -273,7 +273,7 @@ function theme_name_options( $wp_customize ) {
 			'priority'	=>	10,
 			'choices' => array(
                   'container-fluid' => 'Full Width (container-fluid)',
-                  'container' => 'Container(container-)',
+                  'container' => 'Fixed Width 1200px (container)',
               ),
 		)
 	);

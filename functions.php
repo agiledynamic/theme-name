@@ -7,7 +7,6 @@
  */
 include 'lib/custom_post_types.php';
 
-
 /*
 * Add Theme Options Page
 */
@@ -17,6 +16,22 @@ include 'lib/theme-name-settings-page.php';
 * Add post thumbnail support
 */
 add_theme_support( 'post-thumbnails' );
+
+// Fix for WP Adminbar and Navbar conflict
+add_action('wp_head', 'navfix_wp_head');
+function navfix_body_class($classes){
+    if(is_user_logged_in()){
+        $classes[] = 'body-logged-in';
+    } else{
+        $classes[] = 'body-logged-out';
+    }
+    return $classes;
+}
+
+function navfix_wp_head(){
+    echo '<style> body{ padding-top: 70px !important; }
+    body.logged-in .navbar-fixed-top{ top: 28px !important; }</style>';
+}
 
 /*
 * Enqueue Custom Stylesheets

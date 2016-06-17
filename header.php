@@ -18,20 +18,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php wp_head(); ?>
+<script id="Debug-Scripts">
+  console.log('<!--');
+  console.log('Debugging!');
+  console.log("I'm from the Debug-Scripts tag in <head>");
+  console.log('-->');
+</script>
 </head>
 
 
 
 <body <?php body_class(); ?>>
-
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Oswald']
-    }
-  });
-</script>
 
 	<nav class="navbar navbar-fixed-top navbar-light">
 		<div class="container">
