@@ -1,7 +1,6 @@
 /* 
 * Slider control 
 */
-console.log("foobar");
 jQuery(document).ready(function(jQuery) {
     jQuery('.extra-slider').extraSlider({
     	type: 'fade',
