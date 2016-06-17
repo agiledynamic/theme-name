@@ -64,7 +64,7 @@
 			</section> <!-- .extra-slider -->
 
 
-			<section class="container"> <!-- content -->
+			<section class="<?php echo get_theme_mod('layout_container'); ?>"> <!-- content -->
 				<!-- START THE FEATURETTES -->
 				<hr class="featurette-divider">
 
