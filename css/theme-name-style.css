@@ -482,14 +482,32 @@ textarea {
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 1em; }
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased; }
 
 h2, .col-xs-12 {
   text-align: center; }
 
 /* single - showcase */
-.showcase-item {
+.showcase-grid .item:hover .img img {
+  opacity: .5; }
+
+.showcase-grid .item:hover a {
+  color: white; }
+
+.showcase-grid .item {
   margin-top: 5px;
   text-align: center; }
-  .showcase-item .img img {
-    margin-top: 5px; }
+  .showcase-grid .item .img img {
+    margin-top: 5px;
+    transition: opacity .4s ease; }
+  .showcase-grid .item a {
+    transition: color 4s ease;
+    text-decoration: none; }
+  .showcase-grid .item p.showcase-item__title strong {
+    font-size: 1.4rem; }
+  .showcase-grid .item p.showcase-item__title span.info {
+    margin-top: 8px;
+    display: block; }
+    .showcase-grid .item p.showcase-item__title span.infoa {
+      text-decoration: none; }

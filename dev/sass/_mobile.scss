@@ -1,17 +1,46 @@
 html, body {
 	@include fontRegular;
 	font-size: 1em;
+	-webkit-font-smoothing: antialiased;
 }
 h2, .col-xs-12{
 	text-align: center;
 }
 
 /* single - showcase */
+.showcase-grid {
+	.item:hover{
+		.img img{
+			opacity: .5;
+		}
+		a {
+			color: white;;
+		}
+	}
+	.item {
+		margin-top: 5px;
+		text-align: center;
+		.img img {
+			margin-top: 5px;
+			transition: opacity .4s ease;
+		}
+		a {
+			transition: color 4s ease;
+			text-decoration: none;
 
-.showcase-item {
-	margin-top: 5px;
-	text-align: center;
-  .img img {
-    margin-top: 5px;
-  }
+		}
+		p.showcase-item__title{
+			strong {
+				font-size: 1.4rem;
+			}
+	  		span.info{
+	  			&a {
+	  				text-decoration: none;
+	  			}
+	  			margin-top: 8px;
+	  			display: block;
+			}
+		}
+	}
+
 }
