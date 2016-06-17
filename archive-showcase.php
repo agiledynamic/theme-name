@@ -25,11 +25,14 @@ query_posts('post_type=showcase&posts_per_page=9'); ?>
 							<?php the_post_thumbnail(); ?>	
 						</a>
 					</div> 
+
 					<p>
 						<strong><?= $title ?>: </strong> <?php print get_the_excerpt(); ?>
 						<a title="<?= $title ?>" href="<?= get_permalink($post->ID) ?>">(more)</a>
 					</p>
+
 					<?php $site = get_post_custom_values('projLink'); ?>
+
 					<?php if($site[0] != ""){ ?>
 						<p>
 							<a href="<?= $site[0] ?>">Visit the site</a>
@@ -37,8 +40,9 @@ query_posts('post_type=showcase&posts_per_page=9'); ?>
 					<?php }else{ ?>
 						<p><em>Live Link Unavailable</em></p>
 					<?php } ?>
+					
 				</div> <!-- .showcase-item -->
-			<?php endwhile; endif; ?>	
+			<?php endwhile; endif; ?>
 		</div> <!-- .row -->
 	</section> <!-- .container -->
 </div> <!-- #portfolio -->

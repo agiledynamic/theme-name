@@ -170,7 +170,7 @@ function project_custom_columns($column) {
 	}
 }
 
-/* limit excerpt tp 20 words */
+/* limit excerpt to 20 words */
 add_filter('excerpt_length', 'my_excerpt_length');
 
 function my_excerpt_length($length) {
