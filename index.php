@@ -24,23 +24,19 @@
 			<!-- SLIDER -->
 			<section class="extra-slider">
 				<?php 
-				$stickyposts = get_option( 'sticky_posts' );
 				$slide = 1;
-				if ( $stickyposts ) {
-					$args = [
-				        'post_type'           => 'post',
-				        'post__in'            => $stickyposts,
-				        'ignore_sticky_posts' => 1
-				    ];
-				    $slider_query = new WP_Query($args);
-				} else {
-					$slider_query = new WP_Query( 'posts_per_page=5' );
-				}
+				$my_post_meta = get_post_meta( $post-ID, 'proj-starred', true);
+
+				$args = [
+					'post_type'		=> 'showcase',
+					'meta_key'		=> 'proj-starred',
+				];
+				$slider_query = new WP_Query($args);
 				?>
 				<figure class="wrapper">
 					<ul>
 					<?php while ($slider_query -> have_posts()) : $slider_query -> the_post(); ?>
-						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url() ?>');" alt="">
+						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');" alt="">
 							<figcaption class="slider-caption theme-font-color"><?php the_title(); ?></figcaption>
 						</li>
 					<?php 
@@ -55,28 +51,19 @@
 					<a href="#" class="next">Next</a>
 				</div>
 				<div class="pagination"></div>
-			</section>
-			<!-- SLIDER -->
+			</section> <!-- .extra-slider -->
 
 
 			<section class="container"> <!-- content -->
 			<!-- START THE FEATURETTES -->
 				<hr class="featurette-divider">
-
 				<?php 
-				$stickyposts = get_option( 'sticky_posts' );
+				$showcase = new WP_Query( $args );
+				$args = [
+					'post_type'		=> 'showcase',
+				];
 
-				if ( $stickyposts ) {
-					$args = [
-				        'post_type'           => 'post',
-				        'post__in'            => $stickyposts,
-				        'ignore_sticky_posts' => 1
-				    ];
-
-				    $the_query = new WP_Query($args);
-				} else {
-					$the_query = new WP_Query( 'posts_per_page=5' );
-				}
+			    $the_query = new WP_Query($args);
 			 
 				?>
 				<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
