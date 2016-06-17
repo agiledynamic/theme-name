@@ -18,7 +18,7 @@ function showcase_meta_options(){
 	<div class="inside">
 		<div class="">
 			<label for="proj-starred">
-			<input name="proj-starred" type="checkbox" id="proj-starred" value="yes" <?php if ( isset( $custom['proj-starred'] ) ) checked( $custom['proj-starred'][0], 'yes' ); ?> />
+			<input name="proj-starred" type="checkbox" id="proj-starred" value="Yes" <?php if ( isset( $custom['proj-starred'] ) ) checked( $custom['proj-starred'][0], 'Yes' ); ?> />
 				Show post in your carousel
 			</label>
 		</div>
@@ -50,9 +50,9 @@ function save_project_meta_box(){
 	}
 
 	if( isset($_POST['proj-starred']) ){
-		update_post_meta( $post->ID, 'proj-starred', 'yes');
+		update_post_meta( $post->ID, 'proj-starred', 'Yes');
 	}else{
-		update_post_meta( $post->ID, 'proj-starred', '');
+		update_post_meta( $post->ID, 'proj-starred', 'No');
 	}
 }
 
@@ -140,7 +140,8 @@ function project_edit_columns($columns){
 		'description'	=> 'Description',
 		'link'			=> 'Link',
 		'skill'			=> 'Skills used in project',
-		'proj-date'		=> 'Date of project'
+		'proj-date'		=> 'Date of project',
+		'starred'		=> 'Show in Carousel'
 		);
 
 	return $columns;
@@ -166,6 +167,9 @@ function project_custom_columns($column) {
 			break;
 		case 'proj-date':
 			echo $custom['proj-date'][0];
+			break;
+		case 'starred':
+			echo $custom['proj-starred'][0];
 			break;
 	}
 }
