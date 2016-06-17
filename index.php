@@ -25,18 +25,32 @@
 			<section class="extra-slider">
 				<?php 
 				$slide = 1;
-				$my_post_meta = get_post_meta( $post-ID, 'proj-starred', true);
+				global $post;
+				$starredPosts = get_post_meta( $post->ID, 'proj-starred' ); //get_post_meta( $post-ID, 'proj-starred', true);
 
-				$args = [
-					'post_type'		=> 'showcase',
-					'meta_key'		=> 'proj-starred',
-				];
-				$slider_query = new WP_Query($args);
+				if( $starredPosts){
+					$args = [
+						'post_type'		=> 'showcase',
+						'meta_query'	=> [
+							[
+								'key'	=> 'proj-starred',
+								'value' => 'Yes'
+							]
+						]
+					];
+
+					$slider_query = new WP_Query($args);
+				} else {
+					$slider_query = new WP_Query( 'post_type=showcase', 'posts_per_page="5"' );
+				}
+
+
+
 				?>
 				<figure class="wrapper">
 					<ul>
 					<?php while ($slider_query -> have_posts()) : $slider_query -> the_post(); ?>
-						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url() ?>');" alt="">
+						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');" alt="">
 							<figcaption class="slider-caption h1-font secondary-color"><?php the_title(); ?></figcaption>
 						</li>
 					<?php 
@@ -55,8 +69,9 @@
 
 
 			<section class="container"> <!-- content -->
-			<!-- START THE FEATURETTES -->
+				<!-- START THE FEATURETTES -->
 				<hr class="featurette-divider">
+
 				<?php 
 				$showcase = new WP_Query( $args );
 				$args = [
@@ -72,13 +87,14 @@
 						<a href="<?php the_permalink() ?>">
 							<h2 class="featurette-heading h2-font primary-color"><?php the_title(); ?></h2>
 						</a>
-
 						<p class="lead paragraph-font accent-color-one">
 							<?php echo get_the_excerpt(); ?>
 						</p>
 					</div>
 					<div class="col-md-5 <?php if ($the_query->current_post % 2 == 1) { echo 'col-md-pull-7';} ?> square">
-						<?php the_post_thumbnail( 'full', array( 'class' => 'featurette-image img-fluid center-block', 'alt' => 'Post feautred image' ) ); ?>
+						<a href="<?php the_permalink() ?>">
+							<?php the_post_thumbnail( 'full', array( 'class' => 'featurette-image img-fluid center-block', 'alt' => 'Post feautred image' ) ); ?>
+						</a>
 					</div>
 				</div>
 				<hr class="featurette-divider">
