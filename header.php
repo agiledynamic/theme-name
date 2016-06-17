@@ -26,9 +26,7 @@
 </script>
 </head>
 
-
-
-<body <?php body_class(); ?>>
+<?php echo '<body class="'.join(' ', get_body_class()).'">'.PHP_EOL; ?>
 
 	<nav class="navbar navbar-fixed-top navbar-light">
 		<div class="container">
