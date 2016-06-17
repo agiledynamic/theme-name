@@ -478,15 +478,11 @@ textarea {
   .navbar-nav .nav-link + .nav-link {
     margin-left: 1rem; } }
 
-<<<<<<< HEAD
+/* DEBUGGING */
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   font-size: 1em; }
-=======
-/* DEBUGGING */
-.featurette {
-  position: relative; }
 
 h2, .col-xs-12 {
   text-align: center; }
@@ -497,4 +493,3 @@ h2, .col-xs-12 {
   text-align: center; }
   .showcase-item .img img {
     margin-top: 5px; }
->>>>>>> a91b6be37c01d8ea43981a2af27f481e7aef3f4d

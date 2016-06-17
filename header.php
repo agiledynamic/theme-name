@@ -53,6 +53,9 @@
 					<li class="nav-item">
 						<a class="nav-link nav-font primary-color" href="#">About</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/showcase">Showcase</a>
+					</li>
 				</ul>
 			</div>
 		</div>
