@@ -13,8 +13,8 @@ h2, .col-xs-12{
 		.img img{
 			opacity: .5;
 		}
-		a {
-			color: white;;
+		a, strong{
+			color: grey;
 		}
 	}
 	.item {
@@ -24,19 +24,15 @@ h2, .col-xs-12{
 			margin-top: 5px;
 			transition: opacity .4s ease;
 		}
-		a {
-			transition: color 4s ease;
+		a, strong{
+			transition: color .4s ease;
 			text-decoration: none;
-
 		}
 		p.showcase-item__title{
 			strong {
 				font-size: 1.4rem;
 			}
 	  		span.info{
-	  			&a {
-	  				text-decoration: none;
-	  			}
 	  			margin-top: 8px;
 	  			display: block;
 			}

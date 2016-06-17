@@ -492,8 +492,8 @@ h2, .col-xs-12 {
 .showcase-grid .item:hover .img img {
   opacity: .5; }
 
-.showcase-grid .item:hover a {
-  color: white; }
+.showcase-grid .item:hover a, .showcase-grid .item:hover strong {
+  color: grey; }
 
 .showcase-grid .item {
   margin-top: 5px;
@@ -501,13 +501,11 @@ h2, .col-xs-12 {
   .showcase-grid .item .img img {
     margin-top: 5px;
     transition: opacity .4s ease; }
-  .showcase-grid .item a {
-    transition: color 4s ease;
+  .showcase-grid .item a, .showcase-grid .item strong {
+    transition: color .4s ease;
     text-decoration: none; }
   .showcase-grid .item p.showcase-item__title strong {
     font-size: 1.4rem; }
   .showcase-grid .item p.showcase-item__title span.info {
     margin-top: 8px;
     display: block; }
-    .showcase-grid .item p.showcase-item__title span.infoa {
-      text-decoration: none; }
