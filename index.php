@@ -38,14 +38,10 @@
 							]
 						]
 					];
-
 					$slider_query = new WP_Query($args);
 				} else {
 					$slider_query = new WP_Query( 'post_type=showcase', 'posts_per_page="5"' );
 				}
-
-
-
 				?>
 				<figure class="wrapper">
 					<ul>
