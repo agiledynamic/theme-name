@@ -1,4 +1,3 @@
-console.log('customizing!');
 (function($){
 	// COLORS
 	wp.customize('primary_color', function(value){
@@ -29,31 +28,37 @@ console.log('customizing!');
 	// FONTS
 	wp.customize('paragraph_font', function(value){
 		value.bind( function(new_value){
-			$('.paragraph-font').css('font-family', new_value);
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
+			$('.paragraph-font').css('font-family', new_value.trim());
 		})
 	});
 	wp.customize('h1_font', function(value){
 		value.bind( function(new_value){
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
 			$('.h1-font').css('font-family', new_value);
 		})
 	});
 	wp.customize('h2_font', function(value){
 		value.bind( function(new_value){
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
 			$('.h2-font').css('font-family', new_value);
 		})
 	});
 	wp.customize('h3_font', function(value){
 		value.bind( function(new_value){
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
 			$('.h3-font').css('font-family', new_value);
 		})
 	});
 	wp.customize('h4_font', function(value){
 		value.bind( function(new_value){
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
 			$('.h4-font').css('font-family', new_value);
 		})
 	});
 	wp.customize('nav_font', function(value){
 		value.bind( function(new_value){
+			jQuery("head").append("<link id="+ new_value +" href='https://fonts.googleapis.com/css?family="+new_value.trim()+"' rel='stylesheet' type='text/css'>");
 			$('.nav-font').css('font-family', new_value);
 		})
 	});
