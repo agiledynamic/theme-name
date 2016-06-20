@@ -18,7 +18,7 @@ include 'lib/theme-name-settings-page.php';
 add_theme_support( 'post-thumbnails' );
 
 // Fix for WP Adminbar and Navbar conflict
-add_action('wp_head', 'navfix_wp_head');
+add_filter('body_class', 'navfix_body_class');
 function navfix_body_class($classes){
     if(is_user_logged_in()){
         $classes[] = 'body-logged-in';
@@ -28,9 +28,13 @@ function navfix_body_class($classes){
     return $classes;
 }
 
-function navfix_wp_head(){
-    echo '<style> body{ padding-top: 70px !important; }
-    body.logged-in .navbar-fixed-top{ top: 28px !important; }</style>';
+add_action('wp_head', 'navbar_wp_head');
+function navbar_wp_head(){
+    echo '<style>'.PHP_EOL;
+    echo 'body.body-logged-in{ top: 28px !important; }'.PHP_EOL;
+    echo 'body.body-logged-in .navbar-fixed-top{ top: 28px !important; }'.PHP_EOL;
+    echo 'body.logged-in .navbar-fixed-top{ top: 28px !important; }'.PHP_EOL;
+    echo '</style>'.PHP_EOL;
 }
 
 /*

@@ -263,21 +263,6 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
-	$wp_customize->add_control(
-		'layout_control',
-		array(
-			'type'		=> 'select',
-			'label'		=>	__('Page Width', 'theme-name'),
-			'section'	=>	'theme-name-layout-options',
-			'settings'	=>	'layout_container',
-			'priority'	=>	10,
-			'choices' => array(
-                  'container-fluid' => 'Full Width (container-fluid)',
-                  'container' => 'Fixed Width 1200px (container)',
-              ),
-		)
-	);
-
 	if ( class_exists('WP_Customize_Control')) {
 		class WP_Customize_Textarea_Control extends WP_Customize_Control {
 			public $type = 'textarea';
@@ -315,6 +300,21 @@ function theme_name_options( $wp_customize ) {
 		) 
 	));
 
+	$wp_customize->add_control(
+		'layout_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('Page Width', 'theme-name'),
+			'section'	=>	'theme-name-layout-options',
+			'settings'	=>	'layout_container',
+			'priority'	=>	10,
+			'choices' => array(
+                  'container-fluid' => 'Full Width (container-fluid)',
+                  'container' => 'Fixed Width 1200px (container)',
+              ),
+		)
+	);
+	
 	// Remove unnecessary sections
     $wp_customize->remove_section('static_front_page');
 }

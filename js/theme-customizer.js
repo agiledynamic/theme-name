@@ -62,4 +62,14 @@
 			$('.nav-font').css('font-family', new_value);
 		})
 	});
+
+	// Layout
+	wp.customize('layout_container', function(value){
+		value.bind( function(new_value){
+			jQuery('.container').removeClass('container').addClass(new_value.trim());
+			jQuery('.container-fluid').removeClass('container-fluid').addClass(new_value.trim());
+			jQuery
+		})
+	});
+
 })( jQuery );
