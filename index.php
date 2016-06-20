@@ -28,7 +28,7 @@
 				global $post;
 				$starredPosts = get_post_meta( $post->ID, 'proj-starred' ); //get_post_meta( $post-ID, 'proj-starred', true);
 
-				if( $starredPosts){
+				if( $starredPosts ){
 					$args = [
 						'post_type'		=> 'showcase',
 						'meta_query'	=> [
@@ -78,7 +78,7 @@
 				<hr class="featurette-divider">
 
 				<?php 
-				$showcase = new WP_Query( $args );
+
 				$args = [
 					'post_type'		=> 'showcase',
 				];
