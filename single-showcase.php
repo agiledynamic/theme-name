@@ -7,7 +7,7 @@
 
 				<?php if ( have_posts() ) : ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class();?> >
-						<header>
+						<header class="primary-color">
 							<?php the_title( '<h2 class="featurette-heading">', '</h2>');?>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -16,7 +16,7 @@
 								<?php the_post_thumbnail( 'showcase-img img-fluid' ); ?>
 							<?php } ?>
 
-							<div class="entry-content">
+							<div class="entry-content accent-color-one single-text">
 								<?php the_content(); ?>
 							</div>
 							
@@ -38,4 +38,5 @@
 
 	</div><!-- #content -->
 </div> <!-- .wrapper -->
+<?php wp_footer(); ?>
 <?php get_footer(); ?>

@@ -529,6 +529,13 @@ h2, .col-xs-12 {
     margin-top: 8px;
     display: block; }
 
+.site {
+  padding: 50px; }
+
+.single-text {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
 @media all and (min-width: 768px) {
   /* Slider style */
   .slider-text {
