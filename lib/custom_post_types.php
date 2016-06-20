@@ -174,8 +174,6 @@ function project_custom_columns($column) {
 }
 
 /* limit excerpt to 20 words */
-add_filter('excerpt_length', 'my_excerpt_length');
-
 function my_excerpt_length($length) {
  
 	return 20;
@@ -186,7 +184,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function new_excerpt_more($text){
 
-	return 'more more more';
+	return ' (...)';
 }
 
 function showcase_thumbnail_url($pid){

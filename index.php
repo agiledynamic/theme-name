@@ -73,7 +73,7 @@
 			</section> <!-- .extra-slider -->
 
 
-			<section class="<?php echo get_theme_mod('layout_container'); ?>"> <!-- content -->
+			<section class="<?php echo get_theme_mod('layout_container', 'container'); ?>"> <!-- content -->
 				<!-- START THE FEATURETTES -->
 				<hr class="featurette-divider">
 
@@ -109,13 +109,7 @@
 			<!-- /END THE FEATURETTES -->
 
 			</section>
-			
-
 		</div><!-- #content -->
-
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			
-		</footer><!-- #colophon -->
 	</div><!-- #page -->
 
 	<?php wp_footer(); ?>

@@ -32,10 +32,10 @@
 	<nav class="navbar navbar-fixed-top">
 		<div class="container">
 			<a class="navbar-brand nav-font secondary-color" href="<?php echo get_home_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
-			<button class="navbar-toggler hidden-sm-up pull-xs-right secondary-color" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+			<button class="navbar-toggler hidden-sm-up pull-xs-right secondary-color" type="button" data-toggle="collapse" data-target="#navbarCollapse">
 			&#9776;
 			</button>
-			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+			<div class="collapse navbar-toggleable-xs" id="navbarCollapse">
 
 				<ul class="nav navbar-nav">
 					<?php
@@ -58,7 +58,7 @@
 					    }
 					} ?>
 					<li class="nav-item">
-						<a class="nav-link nav-font secondary-color" href="<?php echo get_home_url(); ?>/showcase/">More showcases</a>
+						<a class="nav-link nav-more nav-font secondary-color" href="<?php echo get_home_url(); ?>/showcase/">More showcases</a>
 					</li>
 				</ul>
 			</div>

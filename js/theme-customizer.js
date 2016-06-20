@@ -74,5 +74,10 @@
 			jQuery('.container-fluid').removeClass('container-fluid').addClass(new_value.trim());
 		})
 	});
+	wp.customize('showcase_background', function(value){
+		value.bind( function(new_value){
+			jQuery('.showcase__header').css('background-image', 'url("'+ new_value +'")');
+		})
+	});
 
 })( jQuery );

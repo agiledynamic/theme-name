@@ -19,7 +19,6 @@ jQuery(window).on("scroll", function() {
     if(jQuery(window).scrollTop() > 50) {
         jQuery("nav").addClass("nav-scroll");
     } else {
-        //remove the background property so it comes transparent again (defined in your css)
        jQuery("nav").removeClass("nav-scroll");
     }
 });

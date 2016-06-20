@@ -165,6 +165,13 @@ function theme_name_options( $wp_customize ) {
 			'transport'	=>	'postMessage'
 		)
 	);
+	$wp_customize->add_setting(
+		'showcase_background',
+		array(
+			'default'	=> 	'',
+			'transport'	=>	'postMessage'
+		)
+	);
 
 	// Add Color Controls to Customizer Section
 	$wp_customize->add_control( new WP_Customize_Color_Control( 
@@ -455,7 +462,16 @@ function theme_name_options( $wp_customize ) {
 			'priority'		=> 70,
 		) 
 	));
-
+	$wp_customize->add_control( new WP_Customize_Upload_Control( 
+		$wp_customize, 
+		'showcase_background_control', 
+		array(
+			'label'      	=>	__( 'Showcase Header Image', 'theme-name' ),
+			'section'    	=>	'theme-name-layout-options',
+			'settings'   	=>	'showcase_background',
+			'priority'		=>	10
+		) ) 
+	);
 	$wp_customize->add_control(
 		'layout_control',
 		array(
@@ -463,7 +479,7 @@ function theme_name_options( $wp_customize ) {
 			'label'		=>	__('Page Width', 'theme-name'),
 			'section'	=>	'theme-name-layout-options',
 			'settings'	=>	'layout_container',
-			'priority'	=>	10,
+			'priority'	=>	20,
 			'choices' => array(
                   'container-fluid' => 'Full Width (container-fluid)',
                   'container' => 'Fixed Width 1200px (container)',
@@ -483,15 +499,44 @@ function implement_customizer_css(){
 	?>
 	<style type="text/css" media="screen">
 		/* Theme custom colors */
-		.primary-color { color: <?php echo get_theme_mod('primary_color'); ?>; }
-		.primary-color-bg { background-color: <?php echo get_theme_mod('primary_color'); ?>; }
-		.secondary-color { color: <?php echo get_theme_mod('secondary_color'); ?>; }
-		.secondary-color-bg { background-color: <?php echo get_theme_mod('secondary_color'); ?>; }
-		.accent-color-one { color: <?php echo get_theme_mod('accent_color_one'); ?>; }
-		.accent-color-one-bg { background-color: <?php echo get_theme_mod('accent_color_one'); ?>; }
-		.accent-color-two { color: <?php echo get_theme_mod('accent_color_two'); ?>; }
-		.accent-color-two-bg { background-color: <?php echo get_theme_mod('accent_color_two'); ?>; }
-		.nav-scroll { background-color: <?php echo get_theme_mod('accent_color_two'); ?>; }
+		<?php $primaryColor = get_theme_mod( 'primary_color', '' );
+		if ($primaryColor !== '') {  ?>
+		   .primary-color { color:<?php echo $primaryColor; ?>; }
+		<?php } ?>
+		<?php $primaryColorBg = get_theme_mod( 'primary_color', '' );
+		if ($primaryColorBg !== '') {  ?>
+		   .primary-color-bg { background-color:<?php echo $primaryColorBg; ?>; }
+		<?php } ?>
+		<?php $secondaryColor = get_theme_mod( 'secondary_color', '' );
+		if ($secondaryColor !== '') {  ?>
+		   .secondary-color { color:<?php echo $secondaryColor; ?>; }
+		<?php } ?>
+		<?php $secondaryColorBg = get_theme_mod( 'secondary_color', '' );
+		if ($secondaryColorBg !== '') {  ?>
+		   .secondary-color-bg { background-color:<?php echo $secondaryColorBg; ?>; }
+		<?php } ?>
+		<?php $accentColorOne = get_theme_mod( 'accent_color_one', '' );
+		if ($accentColorOne !== '') {  ?>
+		   .accent-color-one { color:<?php echo $accentColorOne; ?>; }
+		<?php } ?>
+		<?php $accentColorOneBg = get_theme_mod( 'accent_color_one', '' );
+		if ($accentColorOneBg !== '') {  ?>
+		   .accent-color-one-bg { background-color:<?php echo $accentColorOneBg; ?>; }
+		<?php } ?>
+		
+		<?php $accentColorTwo = get_theme_mod( 'accent_color_two', '' );
+		if ($accentColorTwo !== '') {  ?>
+		   .accent-color-two { color:<?php echo $accentColorTwo; ?>; }
+		<?php } ?>
+		<?php $accentColorTwoBg = get_theme_mod( 'accent_color_two', '' );
+		if ($accentColorTwoBg !== '') {  ?>
+		   .accent-color-two-bg { background-color:<?php echo $accentColorTwoBg; ?>; }
+		<?php } ?>
+
+		<?php $navScrollColor = get_theme_mod( 'accent_color_two', '' );
+		if ($navScrollColor !== '') {  ?>
+		   .nav-scroll { background-color:<?php echo $navScrollColor; ?>; }
+		<?php } ?>
 		.extra-slider .pagination a {	border-color: <?php echo get_theme_mod('secondary_color'); ?>;	}
 		.extra-slider .pagination a.extra-slider-link-active { background: <?php echo get_theme_mod('secondary_color'); ?>; }
 		.extra-slider .pagination a:hover { background:<?php echo get_theme_mod('secondary_color'); ?>; }
@@ -507,6 +552,9 @@ function implement_customizer_css(){
 		.h3-font { font-family: <?php echo get_theme_mod('h3_font'); ?>; }
 		.h4-font { font-family: <?php echo get_theme_mod('h4_font'); ?>; }
 		.nav-font { font-family: <?php echo get_theme_mod('nav_font'); ?>; }
+
+		/* Layout Options */
+
 	</style>
 	<?php
 }

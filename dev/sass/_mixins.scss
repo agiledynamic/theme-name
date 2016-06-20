@@ -4,6 +4,18 @@
 	}
 }
 
+
+/*
+*	PX to EM
+*/
+$browser-context: 16; // Default
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+/* 
+*	CLEARFIX 
+*/
 @mixin clearfix {
   &:after {
     content: "";
@@ -12,6 +24,25 @@
   }
 }
 
+/*
+*	COLORS
+*/
+$black:	#1E2023;
+$white:	#ffffff;
+$grey:	#777777;
+
+/*
+*	TYPOGRAPHY
+*/
+@mixin fontLight {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+@mixin fontLightItalic {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
 @mixin fontRegular {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
