@@ -6,6 +6,7 @@
  * 
  */
 include 'lib/custom_post_types.php';
+include 'lib/cpt-showcase.php';
 
 /*
 * Add Theme Options Page

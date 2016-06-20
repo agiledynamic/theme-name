@@ -1,176 +1,131 @@
 <?php
-/* Creates a meta-box for links to project and date */
-add_action('admin_init', 'showcase_meta_box');
+/**
+ *
+ * cpt and metaboxes for contact in footer.php
+ *
+*/
 
-function showcase_meta_box(){
-	add_meta_box('projInfo-meta', 'Project Options', 'showcase_meta_options', 'showcase', 'side', 'low');
+/* METABOX for Contact Custom Post Type*/
+add_action('admin_init', 'contact_meta_box');
+
+function contact_meta_box(){
+	add_meta_box('contact-meta', 'Project Options', 'contact_meta_options', 'contact', 'normal', 'high');
 }
 
-function showcase_meta_options(){
+function contact_meta_options(){
 	global $post;
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return $post_id;
 
-	$custom = get_post_custom($post->ID);
-	$link = $custom['proj-link'][0];
-	$date = $custom['proj-date'][0];
+	$contact = get_post_custom($post->ID);
 
 	?>
 	<div class="inside">
-		<div class="">
-			<label for="proj-starred">
-			<input name="proj-starred" type="checkbox" id="proj-starred" value="Yes" <?php if ( isset( $custom['proj-starred'] ) ) checked( $custom['proj-starred'][0], 'Yes' ); ?> />
-				Show post in your carousel
-			</label>
-		</div>
+		<div class="info">
+			<h3>About you</h3>
+			<label for="email">Email: </label>
+			<input name="email" type="email" id="contact-meta__email" value="<?= $contact['email'][0]; ?> " />
 
-		<div class="">
-			<label for="proj-date">Date: </label>
-			<input name="proj-date" placeholder="YYYY-MM" value="<?php echo $date; ?>" /> <br><br>
-		</div>
+			<label for="phone">Phonenumber: </label>
+			<input name="phone" value="<?php echo $contact['phone'][0]; ?>" />
 
-		<div class="">
-			<label for="proj-link">Link: </label>
-			<input name="proj-link" value="<?php echo $link; ?>" /> 
+			<label for="webpage">Webpage: </label>
+			<input name="webpage" value="<?php echo $contact['webpage'][0]; ?>" /> 
+		</div>
+		<div class="adress">
+			<h3>Adress</h3>
+			<label for="street">Street: </label>
+			<input name="street" value="<?php echo $contact['street'][0]; ?>" />
+
+			<label for="zipcode">Zip code: </label>
+			<input name="zipcode" value="<?php echo $contact['zipcode'][0]; ?>" />
+
+			<label for="city">City: </label>
+			<input name="city" value="<?php echo $contact['city'][0]; ?>" />		
+		</div>
+		<div class="socialmedia">
+			<h3>Social Media</h3>
+			<label for="facebook">Facebook username: </label>
+			<input name="facebook" value="<?php echo $contact['facebook'][0]; ?>" />
+
+			<label for="linkedin">LinkedIn username: </label>
+			<input name="linkedin" value="<?php echo $contact['linkedin'][0]; ?>" />
+
+			<label for="instagram">Instagram username: </label>
+			<input name="instagram" value="<?php echo $contact['instagram'][0]; ?>" />
+
+			<label for="twitter">Twitter username: </label>
+			<input name="twitter" value="<?php echo $contact['twitter'][0]; ?>" />
 		</div>
 	</div>
 	<?php
 }
 
-/* Saves meta box in post */
-add_action('save_post', 'save_project_meta_box');
 
-function save_project_meta_box(){
+/* Saves meta box in post */
+add_action('save_post', 'save_contact_meta_box');
+
+function save_contact_meta_box(){
 	global $post;
 
 	if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 		return $post_id;
 	}else{
-		update_post_meta( $post->ID, 'proj-link', $_POST['proj-link']);
-		update_post_meta( $post->ID, 'proj-date', $_POST['proj-date']);
-	}
-
-	if( isset($_POST['proj-starred']) ){
-		update_post_meta( $post->ID, 'proj-starred', 'Yes');
-	}else{
-		update_post_meta( $post->ID, 'proj-starred', 'No');
+		update_post_meta( $post->ID, 'email', $_POST['email']);
+		update_post_meta( $post->ID, 'phone', $_POST['phone']);
+		update_post_meta( $post->ID, 'webpage', $_POST['webpage']);
+		update_post_meta( $post->ID, 'street', $_POST['street']);
+		update_post_meta( $post->ID, 'zipcode', $_POST['zipcode']);
+		update_post_meta( $post->ID, 'city', $_POST['city']);
+		update_post_meta( $post->ID, 'facebook', $_POST['facebook']);
+		update_post_meta( $post->ID, 'linkedin', $_POST['linkedin']);
+		update_post_meta( $post->ID, 'instagram', $_POST['instagram']);
+		update_post_meta( $post->ID, 'twitter', $_POST['twitter']);
 	}
 }
 
 
-/* Custom Post Type for Showcase */
-add_theme_support('post-thumbnails');
-set_post_thumbnail_size( 200, 200, true );
 
-add_action( 'init', 'cpt_showcase' );
-
-function cpt_showcase() {
+/* Custom Post Type for the about section in footer */
+add_action('init', 'cpt_about');
+function cpt_about() {
 
 	$labels = array(
-		'name'					=> _x('Showcase', 'post type general name'),
-		'menu_name'				=> _x('Showcase', 'admin menu'),
-		'name_admin_bar'		=> _x('Showcase', 'Add new on admin bar'),
-		'add_new'				=> _x('Add New', 'item'),
-		'add_new_item'			=> __('Add New Item'),
+		'name'					=> _x('About', 'About you'),
+		'menu_name'				=> _x('About', 'admin menu'),
+		'add_new'				=> _x('Add info', 'item'),
+		'add_new_item'			=> __('Add info about you'),
 		'edit_item'				=> __('Edit Item'),
-		'new_item'				=> __('New Item'),
-		'all_items'				=> __('All Items'),
+		'new_item'				=> __('New Item'),	
 		'view_item'				=> __('View Item'),
 		'search_items'			=> __('Search Items'),
 		'not_found'				=> __('No items found'),
 		'not_found_in_trash'	=> __('Nothing found'),
 		'parent_item_colon'		=> __(''),
-		'featured_image' 		=> __('Select featured image for the Showcase'),
+		'featured_image' 		=> __('Image'),
 		'set_featured_image' 	=> __('Select image'),
 		'remove_featured_image'	=> __('Remove image'),
-		'use_featured_image' 	=> __('Use as featured image')
+		'use_featured_image' 	=> __('Use as image')
 	);
 	$args = array(
 		'labels'				=> $labels,
-		'description'			=> 'Your Showcase items',
+		'description'			=> 'Information',
 		'capability_type'		=> 'post',
 		'hierarchical'			=> false,
-		'public'				=> true,
+		'public'				=> false,
 		'publicly_queryble'		=> true,
-		'has_archive'			=> true,
 		'show_ui'				=> true,
 		'rewrite'				=> true,
 		'query_var' 			=> true,
 		'menu_postition'		=> 5,
-		'menu_icon'				=> 'dashicons-portfolio',
+		'posts_per_page'		=> 1,
 		'supports'				=> array(
 									'title', 
 									'editor', 
-									'excerpt', 
-									'comments',
-									'thumbnail', 
-									'custom-fields', 
-									'page-attributes'
+									'thumbnail'
 								)
 	);
+	register_post_type( 'about', $args );
 
-	register_post_type( 'showcase', $args );
-}
-
-/* Taxanomies for projects. i.e. A Wordpress page  */
-/* UTVECKLA ELLER TA BORT */
-function project_skill_taxanomy() {
-	register_taxonomy(
-		'Skills',
-		'showcase',
-		array(
-			'hierarchical' 		=> true, 
-			'label' 			=> 'Skills', 
-			'singular_label' 	=> 'Skill', 
-			'rewrite' 			=> true
-		)
-	);
-}
-add_action('init', 'project_skill_taxanomy');
-
-
-/* Makes columns in admin view */ 
-add_filter('manage_edit-showcase_columns', 'project_edit_columns');
-
-function project_edit_columns($columns){
-
-	$columns = array(
-		'cb' 			=> '<input type=\"checkbox\" />',
-		'title' 		=> 'Project',
-		'description'	=> 'Description',
-		'link'			=> 'Link',
-		'skill'			=> 'Skills used in project',
-		'proj-date'		=> 'Date of project',
-		'starred'		=> 'Show in Carousel'
-		);
-
-	return $columns;
-}
-
-add_action('manage_posts_custom_column', 'project_custom_columns');
-
-function project_custom_columns($column) {
-
-	global $post;
-	$custom = get_post_custom();
-
-	switch($column){
-
-		case 'description':
-			the_excerpt();
-			break;
-		case 'link':
-			echo $custom['proj-link'][0];
-			break;
-		case 'skill':
-			echo get_the_term_list($post->ID, 'Skills', '', ', ','');
-			break;
-		case 'proj-date':
-			echo $custom['proj-date'][0];
-			break;
-		case 'starred':
-			echo $custom['proj-starred'][0];
-			break;
-	}
 }
 
 /* limit excerpt to 20 words */
@@ -183,13 +138,44 @@ function my_excerpt_length($length) {
 add_filter('excerpt_more', 'new_excerpt_more');
 
 function new_excerpt_more($text){
-
 	return ' (...)';
 }
 
-function showcase_thumbnail_url($pid){
-    $image_id = get_post_thumbnail_id($pid);  
-    $image_url = wp_get_attachment_image_src($image_id,'screen-shot');  
-    return  $image_url[0];  
+/* Custom Post Type for the social media and contant information section in Footer */
+add_action('init', 'cpt_contact');
+function cpt_contact(){
+
+	$labels = array(
+		'name'					=> _x('Contact', 'Get in contact'),
+		'menu_name'				=> _x('Contact', 'admin menu'),
+		'add_new'				=> _x('Add contact info', 'item'),
+		'add_new_item'			=> __('Add contact info ..  you'),
+		'edit_item'				=> __('Edit Item'),
+		'new_item'				=> __('New Item'),	
+		'view_item'				=> __('View Item'),
+		'search_items'			=> __('Search Items'),
+		'not_found'				=> __('No items found'),
+		'not_found_in_trash'	=> __('Nothing found')
+	);
+	$args = array(
+		'labels'				=> $labels,
+		'description'			=> 'Contact Information',
+		'capability_type'		=> 'post',
+		'hierarchical'			=> false,
+		'public'				=> false,
+		'publicly_queryble'		=> true,
+		'show_ui'				=> true,
+		'rewrite'				=> true,
+		'query_var' 			=> true,
+		'menu_postition'		=> 5,
+		'posts_per_page'		=> 1,
+		'supports'				=> array(
+									'title', 
+									'	', 
+									''
+								)
+	);
+	register_post_type( 'contact', $args );
 }
+
 ?>
