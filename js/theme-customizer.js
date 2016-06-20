@@ -10,6 +10,9 @@
 		value.bind( function(new_value){
 			$('.secondary-color').css('color', new_value);
 			$('.secondary-color-bg').css('background-color', new_value);
+			$('.pagination > a').css('border-color', new_value);
+			$('.pagination a.extra-slider-link-active').css('background-color', new_value);
+			$('.pagination a:hover').css('background-color', new_value);
 		})
 	});
 	wp.customize('accent_color_one', function(value){
@@ -22,6 +25,7 @@
 		value.bind( function(new_value){
 			$('.accent-color-two').css('color', new_value);
 			$('.accent-color-two-bg').css('background-color', new_value);
+			$('.nav-scroll').css('background-color', new_value);
 		})
 	});
 
@@ -68,7 +72,6 @@
 		value.bind( function(new_value){
 			jQuery('.container').removeClass('container').addClass(new_value.trim());
 			jQuery('.container-fluid').removeClass('container-fluid').addClass(new_value.trim());
-			jQuery
 		})
 	});
 

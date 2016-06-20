@@ -47,7 +47,16 @@
 					<ul>
 					<?php while ($slider_query -> have_posts()) : $slider_query -> the_post(); ?>
 						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');" alt="">
-							<figcaption class="slider-caption h1-font secondary-color"><?php the_title(); ?></figcaption>
+							<div class="overlay">
+								<div class="slider-text">
+									<h1 class="slider-title h1-font primary-color"><?php echo the_title(); ?></h1>
+									<figcaption class="slider-caption h1-font primary-color">
+										<?php if ( has_excerpt() ) {
+											the_excerpt();
+										} ?>
+									</figcaption>
+								</div>
+							</div>
 						</li>
 					<?php 
 					$slide++;
@@ -57,8 +66,8 @@
 					</ul>
 				</figure>
 				<div class="navigation">
-					<a href="#" class="prev"></a>
-					<a href="#" class="next"></a>
+					<a href="#" class="prev secondary-color"></a>
+					<a href="#" class="next secondary-color"></a>
 				</div>
 				<div class="pagination"></div>
 			</section> <!-- .extra-slider -->

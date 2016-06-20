@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<title><?php echo get_bloginfo( 'name' ); ?></title>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,28 +29,36 @@
 
 <?php echo '<body class="'.join(' ', get_body_class()).'">'.PHP_EOL; ?>
 
-	<nav class="navbar navbar-fixed-top navbar-light">
+	<nav class="navbar navbar-fixed-top">
 		<div class="container">
-			<a class="navbar-brand nav-font primary-color" href="#">Navbar</a>
-			<button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+			<a class="navbar-brand nav-font secondary-color" href="<?php echo get_home_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
+			<button class="navbar-toggler hidden-sm-up pull-xs-right secondary-color" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			&#9776;
 			</button>
 			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+
 				<ul class="nav navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link nav-font primary-color" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
+					<?php
+					$queryObject = new WP_Query( 'post_type=showcase&posts_per_page=5' );
+					// The Loop!
+					if ($queryObject->have_posts()) {
+					    while ($queryObject->have_posts()) {
+					        $queryObject->the_post();
+					        ?>
+					        <li class="nav-item">
+					        	<a class="nav-link nav-font secondary-color" href="<?php the_permalink(); ?>">
+						        	<?php if (strlen($post->post_title) > 10) {
+										echo substr(the_title($before = '', $after = '', FALSE), 0, 10) . '...'; 
+									} else {
+										the_title();
+									} ?>
+								</a>
+					        </li>
+					    <?php
+					    }
+					} ?>
 					<li class="nav-item">
-						<a class="nav-link nav-font primary-color" href="#">Features</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link nav-font primary-color" href="#">Pricing</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link nav-font primary-color" href="#">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/showcase">Showcase</a>
+						<a class="nav-link nav-font secondary-color" href="<?php echo get_home_url(); ?>/showcase/">More showcases</a>
 					</li>
 				</ul>
 			</div>
