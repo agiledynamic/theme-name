@@ -18,6 +18,33 @@ include 'lib/theme-name-settings-page.php';
 */
 add_theme_support( 'post-thumbnails' );
 
+/*
+* Disable Posts & Pages
+*/
+function remove_from_menu() {
+    remove_menu_page( 'index.php' );                  	//Dashboard
+	// remove_menu_page( 'jetpack' );                    		//Jetpack* 
+	remove_menu_page( 'edit.php' );                  	//Posts
+	// remove_menu_page( 'upload.php' );                 		//Media
+	remove_menu_page( 'edit.php?post_type=page' );    	//Pages
+	// remove_menu_page( 'edit-comments.php' );          		//Comments
+	// remove_menu_page( 'themes.php' );                 		//Appearance
+	// remove_menu_page( 'plugins.php' );                		//Plugins
+	// remove_menu_page( 'users.php' );                  		//Users
+	// remove_menu_page( 'tools.php' );                  		//Tools
+	// remove_menu_page( 'options-general.php' );        		//Settings 
+}
+add_action('admin_init', 'remove_from_menu');
+
+/*
+* Disable Posts & Pages from adminbar
+*/
+add_action( 'admin_bar_menu', 'remove_from_adminbar', 999 );
+function remove_from_adminbar( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'new-post' );
+	$wp_admin_bar->remove_node( 'new-page' );
+}
+
 // Fix for WP Adminbar and Navbar conflict
 add_filter('body_class', 'navfix_body_class');
 function navfix_body_class($classes){
@@ -51,8 +78,14 @@ function customs_scripts() {
 	wp_enqueue_script( 'gs-draggable-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/utils/Draggable.min.js', array('jquery'), 'null', true );
 
 	/* Extra Slider */
-	wp_enqueue_script( 'extra-slider.js', get_template_directory_uri() . '/js/extra.slider.js', array(), 'null', true );
+	wp_enqueue_script( 'extra-slider.js', get_template_directory_uri() . '/js/extra.slider.min.js', array(), 'null', true );
 	wp_enqueue_style('extra-slider', get_template_directory_uri() . '/css/extra.slider.css');
+
+	/* Font Awsome */
+	wp_enqueue_style('Font Awsome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css');
+
+	/* Awesome Cursor */
+	wp_enqueue_script( 'Awesome Cursor', 'https://cdn.rawgit.com/jwarby/jquery-awesome-cursor/master/dist/jquery.awesome-cursor.min.js', array(), 'null', true );
 
 	/* Google Fonts */
 	wp_enqueue_style('Source Sans Pro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');

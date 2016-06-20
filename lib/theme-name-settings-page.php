@@ -8,23 +8,17 @@ function theme_name_settings(){
 function theme_name_settings_page() {
 	?>
     <div class="wrap">
-        <h2><span class="dashicons dashicons-id-alt"></span> Front page elements</h2>
+        <h2>Theme-Name Theme is hand coded with love by:</h2>
  
-        <form method="POST" action="">
-            <form method="post" action="options.php">
-	        <?php
-	            settings_fields("section");
-	            do_settings_sections("theme-options");      
-	            submit_button(); 
-	        ?>          
-	    </form>
-        </form>
+        <h3>Anders Berg</h3>
+        <h3>Mikael Bjerkerot</h3>
+        <h3>Viktor Schultzberg</h3>
     </div>
 	<?php
 }
 
 function add_theme_settings_page() {
-	add_menu_page("Theme Name Settings", "Theme Name Settings", "manage_options", "theme-name-settings", "theme_name_settings_page", "
+	add_menu_page("Theme-Name", "Theme-Name", "manage_options", "theme-name-settings", "theme_name_settings_page", "
 dashicons-hammer", 59);
          
     add_submenu_page('theme-name-settings', 

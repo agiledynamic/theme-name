@@ -47,7 +47,7 @@ if ( post_password_required() ) {
 
 			<div class="form-group">
 				<label for="url">Website: </label>
-				<input class="form-control" type="url" name="url" id="url" value="<?php echo $comment_autor_url; ?>" size="22" tabindex="3"/>
+				<input class="form-control" type="url" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3"/>
 			</div>
 
 			<div class="form-group">

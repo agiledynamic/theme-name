@@ -73,9 +73,23 @@ function theme_name_options( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
+		'paragraph_color',
+		array(
+			'default' 	=>	'#000000',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
 		'h1_font',
 		array(
 			'default' 	=>	'Source Sans Pro',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
+		'h1_color',
+		array(
+			'default' 	=>	'#000000',
 			'transport'	=> 	'postMessage'
 		)
 	);
@@ -87,9 +101,23 @@ function theme_name_options( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
+		'h2_color',
+		array(
+			'default' 	=>	'#000000',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
 		'h3_font',
 		array(
 			'default' 	=>	'Source Sans Pro',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
+		'h3_color',
+		array(
+			'default' 	=>	'#000000',
 			'transport'	=> 	'postMessage'
 		)
 	);
@@ -101,9 +129,23 @@ function theme_name_options( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
+		'h4_color',
+		array(
+			'default' 	=>	'#000000',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
 		'nav_font',
 		array(
 			'default' 	=>	'Source Sans Pro',
+			'transport'	=> 	'postMessage'
+		)
+	);
+	$wp_customize->add_setting(
+		'nav_color',
+		array(
+			'default' 	=>	'#000000',
 			'transport'	=> 	'postMessage'
 		)
 	);
@@ -183,6 +225,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'paragraph_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('Paragraph Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'paragraph_color',
+			'priority'	=>	11,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */ 
 	$wp_customize->add_control(
 		'h1_font_control',
 		array(
@@ -199,6 +260,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'h1_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('H1 Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'h1_color',
+			'priority'	=>	21,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */
 	$wp_customize->add_control(
 		'h2_font_control',
 		array(
@@ -215,6 +295,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'h2_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('H2 Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'h2_color',
+			'priority'	=>	31,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */
 	$wp_customize->add_control(
 		'h3_font_control',
 		array(
@@ -231,6 +330,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'h3_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('H2 Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'h3_color',
+			'priority'	=>	41,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */
 	$wp_customize->add_control(
 		'h4_font_control',
 		array(
@@ -247,6 +365,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'h4_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('H4 Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'h4_color',
+			'priority'	=>	51,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */
 	$wp_customize->add_control(
 		'nav_font_control',
 		array(
@@ -263,6 +400,25 @@ function theme_name_options( $wp_customize ) {
               ),
 		)
 	);
+	/*
+	* Funktionalitet ej klar. Möjligheten att sätta specifik färg på ett text element.
+	*
+	$wp_customize->add_control(
+		'nav_color_control',
+		array(
+			'type'		=> 'select',
+			'label'		=>	__('Nav Color', 'theme-name'),
+			'section'	=>	'theme-name-font-options',
+			'settings'	=>	'nav_color',
+			'priority'	=>	61,
+			'choices' => array(
+                  get_theme_mod('primary_color')	=>	get_theme_mod('primary_color').' (Primary Color)',
+                  get_theme_mod('secondary_color')	=>	get_theme_mod('secondary_color').' (Secondary Color)',
+                  get_theme_mod('accent_color_one')	=>	get_theme_mod('accent_color_one').' (Accent Color One)',
+                  get_theme_mod('accent_color_two')	=>	get_theme_mod('accent_color_two').' (Accent Color Two)',
+              ),
+		)
+	); */
 	if ( class_exists('WP_Customize_Control')) {
 		class WP_Customize_Textarea_Control extends WP_Customize_Control {
 			public $type = 'textarea';
@@ -335,6 +491,14 @@ function implement_customizer_css(){
 		.accent-color-one-bg { background-color: <?php echo get_theme_mod('accent_color_one'); ?>; }
 		.accent-color-two { color: <?php echo get_theme_mod('accent_color_two'); ?>; }
 		.accent-color-two-bg { background-color: <?php echo get_theme_mod('accent_color_two'); ?>; }
+		.nav-scroll { background-color: <?php echo get_theme_mod('accent_color_two'); ?>; }
+		.extra-slider .pagination a {	border-color: <?php echo get_theme_mod('secondary_color'); ?>;	}
+		.extra-slider .pagination a.extra-slider-link-active { background: <?php echo get_theme_mod('secondary_color'); ?>; }
+		.extra-slider .pagination a:hover { background:<?php echo get_theme_mod('secondary_color'); ?>; }
+
+		@media (max-width: 768px) {
+		  .navbar { background:<?php echo get_theme_mod('accent_color_two'); ?>; }
+		}
 
 		/* Theme custom fonts */
 		.paragraph-font { font-family: <?php echo get_theme_mod('paragraph_font'); ?>; }
