@@ -16,9 +16,9 @@
 			<?php $query_contact = new WP_Query( 'post_type=contact&posts_per_page=1' ); ?>
 
 			<?php if( $query_about->have_posts() && $query_contact->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 about">
+				<div class="col-xs-12 col-lg-5 p-y-1 about secondary-color nav-font">
 			<?php elseif( $query_about->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-12 p-y-1 about">
+				<div class="col-xs-12 col-lg-12 p-y-1 about secondary-color nav-font">
 			<?php else :  ?>
 				<div>
 			<?php endif; ?>
@@ -32,9 +32,9 @@
 				</div> <!-- .about -->
 
 			<?php if( $query_contact->have_posts() && $query_about->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 pull-lg-right contact">
+				<div class="col-xs-12 col-lg-5 p-y-1 pull-lg-right contact secondary-color nav-font">
 			<?php elseif( $query_contact->have_posts()) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 contact">
+				<div class="col-xs-12 col-lg-5 p-y-1 contact secondary-color nav-font">
 			<?php else: ?>
 				<div>
 			<?php endif; ?>
@@ -49,9 +49,9 @@
 				<p><strong><?= $title ?></strong></p>
 				<adress>
 					<p class="adress-online">
-						<span><a href="mailto:<?= get_post_meta($post->ID, 'email', true) ?>"><?= get_post_meta($post->ID, 'email', true) ?></a></span>
+						<span><a class="secondary-color" href="mailto:<?= get_post_meta($post->ID, 'email', true) ?>"><?= get_post_meta($post->ID, 'email', true) ?></a></span>
 						<span><?= get_post_meta($post->ID, 'phone', true) ?></span>
-						<span><a href="<?= get_post_meta($post->ID, 'webpage', true) ?>"> <?= $homepage ?></a></span> 
+						<span><a class="secondary-color" href="<?= get_post_meta($post->ID, 'webpage', true) ?>"> <?= $homepage ?></a></span> 
 					</p>
 					<p class="adress-offline">
 						<span><?= get_post_meta($post->ID, 'street', true) ?></span>
@@ -64,28 +64,28 @@
 					<ul class="socialmedia">
 						<?php if ($facebook): ?>
 						<li>
-							<a href="http://www.facebook.com/<?= $facebook; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i> </a>
+							<a class="secondary-color" href="http://www.facebook.com/<?= $facebook; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i> </a>
 						</li>
 						<?php endif; ?>
 						<?php if ($linkedin): ?>
 						<li>
-							<a href="http://www.linkedin.com/in/<?= $linkedin; ?> "><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+							<a class="secondary-color" href="http://www.linkedin.com/in/<?= $linkedin; ?> "><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 						</li>
 						<?php endif; ?>
 						<?php if($instagram): ?>
 						<li>
-							<a href="http://www.instagram.com/<?= $instagram; ?> "><i class="fa fa-instagram" aria-hidden="true"></i></a>
+							<a class="secondary-color" href="http://www.instagram.com/<?= $instagram; ?> "><i class="fa fa-instagram" aria-hidden="true"></i></a>
 						</li>
 						<?php endif; ?>
 						<?php if($twitter): ?>
 						<li>
-							<a href="http://www.twitter.com/<?= $twitter; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></>
+							<a class="secondary-color" href="http://www.twitter.com/<?= $twitter; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></>
 						</li>
 						<?php endif; ?>
 					</ul>
 				</div>
 				<?php endwhile; endif; ?>
-			<div class="col-xs-12"> <!-- fallback if nothing is written in about and/or contact -->
+			<div class="col-xs-12 secondary-color nav-font"> <!-- fallback if nothing is written in about and/or contact -->
 				<span>&copy; <?= bloginfo('name');?> <?= date('Y'); ?> </span>
 			</div>
 		</div>

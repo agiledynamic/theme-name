@@ -6,12 +6,6 @@
 	.adress-online{
 		span{
 			display: block;
-			a:link, a:visited{
-				color: grey;
-			}
-			a:hover, a:active{
-				color: lightgrey;
-			}
 		}
 	}
 	.adress-offline{
@@ -23,14 +17,10 @@
 
 .socialmedia{
 	padding: 0;
+	color: grey;
 	li{
 		list-style: none;
 		margin: 5px 6px 5px 6px;
 	}
-	a:link, a:visited{
-		color: grey;
-	}
-	a:hover, a:active{
-		color: lightgrey;
-	}
+
 }

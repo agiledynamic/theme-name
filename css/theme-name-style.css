@@ -484,22 +484,15 @@ textarea {
   color: grey; }
   .contact .adress-online span {
     display: block; }
-    .contact .adress-online span a:link, .contact .adress-online span a:visited {
-      color: grey; }
-    .contact .adress-online span a:hover, .contact .adress-online span a:active {
-      color: lightgrey; }
   .contact .adress-offline span {
     margin: 0 3px 0 3px; }
 
 .socialmedia {
-  padding: 0; }
+  padding: 0;
+  color: grey; }
   .socialmedia li {
     list-style: none;
     margin: 5px 6px 5px 6px; }
-  .socialmedia a:link, .socialmedia a:visited {
-    color: grey; }
-  .socialmedia a:hover, .socialmedia a:active {
-    color: lightgrey; }
 
 /* DEBUGGING */
 html, body {
