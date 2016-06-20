@@ -493,7 +493,7 @@ h2, .col-xs-12 {
   opacity: .5; }
 
 .showcase-grid .item:hover a, .showcase-grid .item:hover strong {
-  color: grey; }
+  color: gainsboro; }
 
 .showcase-grid .item {
   margin-top: 5px;

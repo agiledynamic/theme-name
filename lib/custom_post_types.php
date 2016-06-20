@@ -66,8 +66,7 @@ add_action( 'init', 'cpt_showcase' );
 function cpt_showcase() {
 
 	$labels = array(
-		'name'					=> _x('Showcases', 'post type general name'),
-		'singular_name'			=> _x('Showcase', 'post type singular name'),
+		'name'					=> _x('Showcase', 'post type general name'),
 		'menu_name'				=> _x('Showcase', 'admin menu'),
 		'name_admin_bar'		=> _x('Showcase', 'Add new on admin bar'),
 		'add_new'				=> _x('Add New', 'item'),
