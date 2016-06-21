@@ -25,13 +25,14 @@
 	left: 6vw;
 	font-size: 5.5em;
 }
-.item {
-	margin-bottom: 30px;
+
+/* SINGLE POST */
+.single__title {
+	font-size: 8em;
 }
-.item__text {
-	height: 16em;
-	padding: 1.2em;
+.single__date {
+	font-size: 1.4em;
 }
-.item__caption {
-	font-size: 1.2em;
+.single__author {
+	font-size: 1.6em;	
 }

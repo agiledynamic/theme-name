@@ -19,12 +19,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php wp_head(); ?>
-<script id="Debug-Scripts">
-  console.log('<!--');
-  console.log('Debugging!');
-  console.log("I'm from the Debug-Scripts tag in <head>");
-  console.log('-->');
-</script>
 </head>
 
 <?php echo '<body class="'.join(' ', get_body_class()).'">'.PHP_EOL; ?>

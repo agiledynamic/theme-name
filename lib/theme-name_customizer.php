@@ -501,7 +501,8 @@ function implement_customizer_css(){
 		/* Theme custom colors */
 		<?php $primaryColor = get_theme_mod( 'primary_color', '' );
 		if ($primaryColor !== '') {  ?>
-		   .primary-color { color:<?php echo $primaryColor; ?>; }
+		   .primary-color, .primary-color:hover, .primary-color:visited { color:<?php echo $primaryColor; ?>; }
+		   .primary-color { border-color:<?php echo $primaryColor; ?>; }
 		<?php } ?>
 		<?php $primaryColorBg = get_theme_mod( 'primary_color', '' );
 		if ($primaryColorBg !== '') {  ?>
@@ -509,7 +510,8 @@ function implement_customizer_css(){
 		<?php } ?>
 		<?php $secondaryColor = get_theme_mod( 'secondary_color', '' );
 		if ($secondaryColor !== '') {  ?>
-		   .secondary-color { color:<?php echo $secondaryColor; ?>; }
+		   .secondary-color, .secondary-color:hover, .secondary-color:visited { color:<?php echo $secondaryColor; ?>; }
+		   .secondary-color { border-color:<?php echo $secondaryColor; ?>; }
 		<?php } ?>
 		<?php $secondaryColorBg = get_theme_mod( 'secondary_color', '' );
 		if ($secondaryColorBg !== '') {  ?>
@@ -517,7 +519,8 @@ function implement_customizer_css(){
 		<?php } ?>
 		<?php $accentColorOne = get_theme_mod( 'accent_color_one', '' );
 		if ($accentColorOne !== '') {  ?>
-		   .accent-color-one { color:<?php echo $accentColorOne; ?>; }
+		   .accent-color-one, .accent-color-one:hover, .accent-color-one:visited { color:<?php echo $accentColorOne; ?>; }
+		   .accent-color-one { border-color:<?php echo $accentColorOne; ?>; }
 		<?php } ?>
 		<?php $accentColorOneBg = get_theme_mod( 'accent_color_one', '' );
 		if ($accentColorOneBg !== '') {  ?>
@@ -526,7 +529,8 @@ function implement_customizer_css(){
 		
 		<?php $accentColorTwo = get_theme_mod( 'accent_color_two', '' );
 		if ($accentColorTwo !== '') {  ?>
-		   .accent-color-two { color:<?php echo $accentColorTwo; ?>; }
+		   .accent-color-two, .accent-color-two:hover, .accent-color-two:visited { color:<?php echo $accentColorTwo; ?>; }
+		   .accent-color-two { border-color:<?php echo $accentColorTwo; ?>; }
 		<?php } ?>
 		<?php $accentColorTwoBg = get_theme_mod( 'accent_color_two', '' );
 		if ($accentColorTwoBg !== '') {  ?>
@@ -537,24 +541,15 @@ function implement_customizer_css(){
 		if ($navScrollColor !== '') {  ?>
 		   .nav-scroll { background-color:<?php echo $navScrollColor; ?>; }
 		<?php } ?>
-		.extra-slider .pagination a {	border-color: <?php echo get_theme_mod('secondary_color'); ?>;	}
-		.extra-slider .pagination a.extra-slider-link-active { background: <?php echo get_theme_mod('secondary_color'); ?>; }
-		.extra-slider .pagination a:hover { background:<?php echo get_theme_mod('secondary_color'); ?>; }
 
-		<?php $sliderLinkColor = get_theme_mod( 'accent_color_two', '' );
-		if ($sliderLinkColor !== '') {  ?>
-		   .slider-link, .slider-link:hover { 
-		   		border-color:<?php echo $sliderLinkColor; ?>;
-		   		color:<?php echo $sliderLinkColor; ?>; 
-		   	}
-		<?php } ?>
-
-		@media (max-width: 768px) {
-		  .navbar { background:<?php echo get_theme_mod('accent_color_two'); ?>; }
+		@media (max-width: 1024px) {
+		  .navbar { background-color:<?php echo get_theme_mod('accent_color_two'); ?>; }
 		}
 
 		/* Theme custom fonts */
+		p { font-family: <?php echo get_theme_mod('paragraph_font'); ?>; }
 		.paragraph-font { font-family: <?php echo get_theme_mod('paragraph_font'); ?>; }
+		.showcase-single__comments .paragraph-font * { font-family: <?php echo get_theme_mod('paragraph_font'); ?>; }
 		.h1-font { font-family: <?php echo get_theme_mod('h1_font'); ?>; }
 		.h2-font { font-family: <?php echo get_theme_mod('h2_font'); ?>; }
 		.h3-font { font-family: <?php echo get_theme_mod('h3_font'); ?>; }
