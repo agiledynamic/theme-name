@@ -84,7 +84,6 @@ function save_contact_meta_box(){
 }
 
 
-
 /* Custom Post Type for the about section in footer */
 add_action('init', 'cpt_about');
 function cpt_about() {
@@ -125,8 +124,33 @@ function cpt_about() {
 								)
 	);
 	register_post_type( 'about', $args );
+
 }
 
+/* limit excerpt to 20 words */
+function excerpt_length($length) {
+ 
+	return 20;
+
+}
+
+add_filter('excerpt_more', 'excerpt_more');
+
+function excerpt_more($text){
+	return ' (...)';
+}
+
+add_filter('excerpt_length', 'my_excerpt_length');
+
+function my_excerpt_length($length) {
+	return 20;
+}
+
+add_filter('excerpt_more', 'new_excerpt_more');
+
+function new_excerpt_more($text){
+	return 'more more more';
+}
 
 /* Custom Post Type for the social media and contant information section in Footer */
 add_action('init', 'cpt_contact');

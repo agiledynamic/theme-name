@@ -541,6 +541,14 @@ function implement_customizer_css(){
 		.extra-slider .pagination a.extra-slider-link-active { background: <?php echo get_theme_mod('secondary_color'); ?>; }
 		.extra-slider .pagination a:hover { background:<?php echo get_theme_mod('secondary_color'); ?>; }
 
+		<?php $sliderLinkColor = get_theme_mod( 'accent_color_two', '' );
+		if ($sliderLinkColor !== '') {  ?>
+		   .slider-link, .slider-link:hover { 
+		   		border-color:<?php echo $sliderLinkColor; ?>;
+		   		color:<?php echo $sliderLinkColor; ?>; 
+		   	}
+		<?php } ?>
+
 		@media (max-width: 768px) {
 		  .navbar { background:<?php echo get_theme_mod('accent_color_two'); ?>; }
 		}
