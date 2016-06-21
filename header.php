@@ -32,10 +32,10 @@
 	<nav class="navbar navbar-fixed-top">
 		<div class="container">
 			<a class="navbar-brand nav-font secondary-color" href="<?php echo get_home_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
-			<button class="navbar-toggler hidden-sm-up pull-xs-right secondary-color" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+			<button class="navbar-toggler hidden-lg-up pull-xs-right secondary-color" type="button" data-toggle="collapse" data-target="#navbarCollapse">
 			&#9776;
 			</button>
-			<div class="collapse navbar-toggleable-xs" id="navbarCollapse">
+			<div class="collapse navbar-toggleable-md" id="navbarCollapse">
 
 				<ul class="nav navbar-nav">
 					<?php

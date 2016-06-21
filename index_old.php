@@ -72,21 +72,27 @@
 			</section> <!-- .extra-slider -->
 
 
-			<section class="<?php echo get_theme_mod('layout_container', 'container'); ?> featurette__container"> <!-- content -->
+			<section class="<?php echo get_theme_mod('layout_container', 'container'); ?>"> <!-- content -->
 				<!-- START THE FEATURETTES -->
+				<hr class="featurette-divider">
 
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<div class="row featurette" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');">
-					<div class="col-md-5 <?php if ($wp_query->current_post % 2 == 1) { echo 'col-md-push-7';} ?> featurette__text secondary-color-bg">
+				<div class="row featurette">
+					<div class="col-md-7 <?php if ($sticky_query->current_post % 2 == 1) { echo 'col-md-push-5';} ?> secondary-color-bg">
 						<a href="<?php the_permalink() ?>">
-							<h2 class="featurette__heading h2-font primary-color"><?php the_title(); ?></h2>
+							<h2 class="featurette-heading h2-font primary-color"><?php the_title(); ?></h2>
 						</a>
-						<p class="featurette__caption paragraph-font accent-color-one">
+						<p class="lead paragraph-font accent-color-one">
 							<?php echo get_the_excerpt(); ?>
 						</p>
 					</div>
+					<div class="col-md-5 <?php if ($sticky_query->current_post % 2 == 1) { echo 'col-md-pull-7';} ?> square">
+						<a href="<?php the_permalink() ?>">
+							<?php the_post_thumbnail( 'full', array( 'class' => 'featurette-image img-fluid center-block', 'alt' => 'Post feautred image' ) ); ?>
+						</a>
+					</div>
 				</div>
-				<hr class="featurette__divider">
+				<hr class="featurette-divider">
 				<?php endwhile; ?>
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>

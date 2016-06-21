@@ -31,7 +31,10 @@
 .navbar-nav .nav-link + .nav-link {
   margin-left: 0;
 }
-@media (min-width: 34em) {
+@media (min-width: 1024px) {
+  .navbar {
+    background-color: transparent;
+  }
   .navbar-brand {
     float: left;
   }

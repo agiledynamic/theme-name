@@ -84,7 +84,6 @@ function save_contact_meta_box(){
 }
 
 
-
 /* Custom Post Type for the about section in footer */
 add_action('init', 'cpt_about');
 function cpt_about() {
@@ -129,15 +128,15 @@ function cpt_about() {
 }
 
 /* limit excerpt to 20 words */
-function my_excerpt_length($length) {
+function excerpt_length($length) {
  
 	return 20;
 
 }
 
-add_filter('excerpt_more', 'new_excerpt_more');
+add_filter('excerpt_more', 'excerpt_more');
 
-function new_excerpt_more($text){
+function excerpt_more($text){
 	return ' (...)';
 }
 
