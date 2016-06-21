@@ -1,20 +1,12 @@
 .navbar {
   background-color: $white;
   width: 100%;
-  a {
-    color: $black;
-    &:hover {
-      color: $grey;
-    }
-    &:visited {
-      color: $black;
-    }
-  }
 }
 .navbar-brand {
   @include fontBold;
   float: none;
   text-transform: uppercase;
+  padding-bottom: 0;
 }
 .navbar-toggler {
   color: $black;
@@ -23,6 +15,10 @@
 .navbar-nav .nav-item {
   float: none;
 }
+.navbar-nav .nav-link{
+  padding-bottom: 0;
+}
+
 .navbar-nav .nav-more {
   @include fontItalic;
 }

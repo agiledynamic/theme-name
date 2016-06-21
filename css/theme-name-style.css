@@ -468,18 +468,13 @@ textarea {
 .navbar {
   background-color: #ffffff;
   width: 100%; }
-  .navbar a {
-    color: #1E2023; }
-    .navbar a:hover {
-      color: #777777; }
-    .navbar a:visited {
-      color: #1E2023; }
 
 .navbar-brand {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   float: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding-bottom: 0; }
 
 .navbar-toggler {
   color: #1E2023;
@@ -487,6 +482,9 @@ textarea {
 
 .navbar-nav .nav-item {
   float: none; }
+
+.navbar-nav .nav-link {
+  padding-bottom: 0; }
 
 .navbar-nav .nav-more {
   font-family: 'Source Sans Pro', sans-serif;
@@ -511,19 +509,22 @@ textarea {
 .about {
   color: grey; }
 
-.contact {
+.contact-adress {
   color: grey; }
-  .contact .adress-online span {
+  .contact-adress adress span {
     display: block; }
-  .contact .adress-offline span {
-    margin: 0 3px 0 3px; }
 
-.socialmedia {
-  padding: 0;
-  color: grey; }
-  .socialmedia li {
-    list-style: none;
-    margin: 5px 6px 5px 6px; }
+.contact-socialmedia {
+  margin: 0 auto; }
+  .contact-socialmedia ul {
+    margin: 0;
+    padding: 0;
+    text-align: center; }
+    .contact-socialmedia ul li {
+      list-style: none;
+      margin: 5px 6px 5px 6px; }
+      .contact-socialmedia ul li a {
+        border-bottom: none; }
 
 /* DEBUGGING */
 html, body {
@@ -532,6 +533,13 @@ html, body {
   color: #1E2023;
   font-size: 1em;
   -webkit-font-smoothing: antialiased; }
+  html a, body a {
+    text-decoration: none;
+    border-bottom: 2px solid #1E2023; }
+    html a:hover, body a:hover {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 4px solid #1E2023; }
 
 .nav-scroll {
   background-color: #ffffff; }

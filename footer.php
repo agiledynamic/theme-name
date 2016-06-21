@@ -11,14 +11,14 @@
 
 ?>
 	<div class="container-fluid p-y-1">
-		<div class="row">
+		<div class="row contact">
 			<?php $query_about = new WP_Query( 'post_type=about&posts_per_page=1' ); ?>
 			<?php $query_contact = new WP_Query( 'post_type=contact&posts_per_page=1' ); ?>
 
 			<?php if( $query_about->have_posts() && $query_contact->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 about secondary-color nav-font">
-			<?php elseif( $query_about->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-12 p-y-1 about secondary-color nav-font">
+				<div class="hidden-sm-down col-md-4 col-lg-4 p-y-1 about secondary-color nav-font">
+			<?php elseif( $query_about->have_posts() && $query_contact->have_posts() == false ) : ?>
+				<div class="hidden-sm-down col-md-6 col-lg-6 p-y-1 about secondary-color nav-font">
 			<?php else :  ?>
 				<div>
 			<?php endif; ?>
@@ -32,9 +32,9 @@
 				</div> <!-- .about -->
 
 			<?php if( $query_contact->have_posts() && $query_about->have_posts() ) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 pull-lg-right contact secondary-color nav-font">
-			<?php elseif( $query_contact->have_posts()) : ?>
-				<div class="col-xs-12 col-lg-5 p-y-1 contact secondary-color nav-font">
+				<div class="col-xs-12 text-xs-center col-md-4 p-y-1 text-md-left pull-md-right contact-adress secondary-color nav-font">
+			<?php elseif( $query_contact->have_posts() && $query_about->have_posts() == false) : ?>
+				<div class="col-xs-12 col-md-6 p-y-1 text-xs-center contact-adress secondary-color nav-font">
 			<?php else: ?>
 				<div>
 			<?php endif; ?>
@@ -45,52 +45,61 @@
 				$linkedin = get_post_meta($post->ID, 'linkedin', true); 
 				$instagram = get_post_meta($post->ID, 'instagram', true); 
 				$twitter = get_post_meta($post->ID, 'twitter', true);
+				$adress = get_post_meta($post->ID, 'street', true) . " " . get_post_meta($post->ID, 'zipcode', true) . " " . get_post_meta($post->ID, 'city', true);
 			?>	
 				<p><strong><?= $title ?></strong></p>
 				<adress>
-					<p class="adress-online">
-						<span><a class="secondary-color" href="mailto:<?= get_post_meta($post->ID, 'email', true) ?>"><?= get_post_meta($post->ID, 'email', true) ?></a></span>
-						<span><?= get_post_meta($post->ID, 'phone', true) ?></span>
-						<span><a class="secondary-color" href="<?= get_post_meta($post->ID, 'webpage', true) ?>"> <?= $homepage ?></a></span> 
-					</p>
-					<p class="adress-offline">
-						<span><?= get_post_meta($post->ID, 'street', true) ?></span>
-						<span><?= get_post_meta($post->ID, 'zipcode', true) ?></span>
-						<span><?= get_post_meta($post->ID, 'city', true) ?></span>
-					</p>
+					<span><a class="secondary-color" href="http://maps.google.com/?q=<?= $adress; ?>"> <?= $adress; ?> </a></span>
+					<span><a class="secondary-color" href="mailto:<?= get_post_meta($post->ID, 'email', true) ?>"><?= get_post_meta($post->ID, 'email', true) ?></a></span>
+					<span><?= get_post_meta($post->ID, 'phone', true) ?></span>
+					<span><a class="secondary-color" href="http://www.<?= $homepage; ?>"> <?= $homepage; ?></a></span> 
 				</adress>
 				</div> <!-- .contact -->
-				<div class="col-xs-12 col-lg-2 center-block">
-					<ul class="socialmedia">
+				<?php if ($query_about->have_posts() == false ) : ?>
+				<div class="col-xs-12 col-md-6 p-y-1 contact-socialmedia">
+				<?php else: ?>
+				<div class="col-xs-12 col-md-4 p-y-1 contact-socialmedia">
+				<?php endif; ?>
+					<ul>
 						<?php if ($facebook): ?>
 						<li>
-							<a class="secondary-color" href="http://www.facebook.com/<?= $facebook; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i> </a>
+							<a class="secondary-color" href="http://www.facebook.com/<?= $facebook; ?>">
+								<i class="fa fa-facebook-official" aria-hidden="true"></i> <?= $facebook; ?>
+							</a>
 						</li>
 						<?php endif; ?>
 						<?php if ($linkedin): ?>
 						<li>
-							<a class="secondary-color" href="http://www.linkedin.com/in/<?= $linkedin; ?> "><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+							<a class="secondary-color" href="http://www.linkedin.com/in/<?= $linkedin; ?> ">
+								<i class="fa fa-linkedin" aria-hidden="true"></i> <?= $linkedin; ?>
+							</a>
 						</li>
 						<?php endif; ?>
 						<?php if($instagram): ?>
 						<li>
-							<a class="secondary-color" href="http://www.instagram.com/<?= $instagram; ?> "><i class="fa fa-instagram" aria-hidden="true"></i></a>
+							<a class="secondary-color" href="http://www.instagram.com/<?= $instagram; ?> ">
+								<i class="fa fa-instagram" aria-hidden="true"></i> <?= $instagram; ?>
+								</a>
 						</li>
 						<?php endif; ?>
 						<?php if($twitter): ?>
 						<li>
-							<a class="secondary-color" href="http://www.twitter.com/<?= $twitter; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></>
+							<a class="secondary-color" href="http://www.twitter.com/<?= $twitter; ?>">
+								<i class="fa fa-twitter" aria-hidden="true"></i> <?= $twitter; ?>
+							</a> 
 						</li>
 						<?php endif; ?>
 					</ul>
 				</div>
 				<?php endwhile; endif; ?>
-			<div class="col-xs-12 secondary-color nav-font"> <!-- fallback if nothing is written in about and/or contact -->
-				<span>&copy; <?= bloginfo('name');?> <?= date('Y'); ?> </span>
+			</div>
+		</div> <!-- .row .contact -->
+		<div class="row">
+			<div class="col-xs-12 secondary-color nav-font"> <!-- Always showing -->
+				<div class="text-xs-center"><?= bloginfo('name');?> &copy;  <?= date('Y'); ?> </div>
 			</div>
 		</div>
-	</div>
-</div>
+	</div> <!-- .container-fluid -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>
 

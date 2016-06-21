@@ -125,37 +125,24 @@ function cpt_about() {
 								)
 	);
 	register_post_type( 'about', $args );
-
 }
 
-/* limit excerpt to 20 words */
-function my_excerpt_length($length) {
- 
-	return 20;
-
-}
-
-add_filter('excerpt_more', 'new_excerpt_more');
-
-function new_excerpt_more($text){
-	return ' (...)';
-}
 
 /* Custom Post Type for the social media and contant information section in Footer */
 add_action('init', 'cpt_contact');
 function cpt_contact(){
 
 	$labels = array(
-		'name'					=> _x('Contact', 'Get in contact'),
-		'menu_name'				=> _x('Contact', 'admin menu'),
-		'add_new'				=> _x('Add contact info', 'item'),
-		'add_new_item'			=> __('Add contact info ..  you'),
-		'edit_item'				=> __('Edit Item'),
-		'new_item'				=> __('New Item'),	
-		'view_item'				=> __('View Item'),
+		'name'				=> _x('Contact', 'Get in contact'),
+		'menu_name'			=> _x('Contact', 'admin menu'),
+		'add_new'			=> _x('Add contact info', 'item'),
+		'add_new_item'		=> __('Add contact info ..  you'),
+		'edit_item'			=> __('Edit Item'),
+		'new_item'			=> __('New Item'),	
+		'view_item'			=> __('View Item'),
 		'search_items'			=> __('Search Items'),
-		'not_found'				=> __('No items found'),
-		'not_found_in_trash'	=> __('Nothing found')
+		'not_found'			=> __('No items found'),
+		'not_found_in_trash'		=> __('Nothing found')
 	);
 	$args = array(
 		'labels'				=> $labels,
@@ -164,8 +151,8 @@ function cpt_contact(){
 		'hierarchical'			=> false,
 		'public'				=> false,
 		'publicly_queryble'		=> true,
-		'show_ui'				=> true,
-		'rewrite'				=> true,
+		'show_ui'			=> true,
+		'rewrite'			=> true,
 		'query_var' 			=> true,
 		'menu_postition'		=> 5,
 		'posts_per_page'		=> 1,
