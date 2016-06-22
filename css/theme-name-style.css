@@ -713,7 +713,7 @@ a {
   color: #ffffff; }
 
 .single__title {
-  font-size: 3.6em;
+  font-size: 2em;
   margin-bottom: 0.6rem; }
 
 .single__date, .single__author {
@@ -750,11 +750,12 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
   transform: translate(-50%, -50%);
   color: #ffffff; }
 
 .showcase-single__title {
-  font-size: 3.6em;
+  font-size: 2em;
   margin-bottom: 0.6rem; }
 
 .showcase-single__date, .showcase-single__author {
@@ -893,4 +894,14 @@ a {
     bottom: 0px;
     transition: all 0.3s ease-in-out; }
   .item:hover .item__caption {
-    bottom: -15px; } }
+    bottom: -15px; }
+  /* SHOWCASE SINGLE */
+  .showcase-single__header {
+    height: 60vh; }
+  .showcase-single__title {
+    font-size: 3.6em; }
+  /* SINGLE POST */
+  .single__title {
+    font-size: 3.6em; }
+  .single-single__header {
+    height: 60vh; } }

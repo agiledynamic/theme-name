@@ -193,7 +193,7 @@ a {
 	color: $white;	
 }
 .single__title {
-	font-size: 3.6em;
+	font-size: 2em;
 	margin-bottom: 0.6rem;
 }
 .single__date {
@@ -232,11 +232,12 @@ a {
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	width: 100%;
 	transform: translate(-50%, -50%);
 	color: $white;	
 }
 .showcase-single__title {
-	font-size: 3.6em;
+	font-size: 2em;
 	margin-bottom: 0.6rem;
 }
 .showcase-single__date {

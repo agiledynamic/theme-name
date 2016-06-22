@@ -54,7 +54,7 @@
 										echo excerpt(35);
 									} ?>
 								</figcaption>
-								<a class="slider-link h1-font primary-color" href="<?php the_permalink() ?>" title="<?php echo the_title(); ?>">Läs mer</a>
+								<a class="slider-link h1-font primary-color" href="<?php the_permalink() ?>" title="<?php echo the_title(); ?>">Read more</a>
 							</div>
 						</li>
 					<?php 
@@ -80,7 +80,7 @@
 						<p class="featurette__caption paragraph-font primary-color">
 							<?php echo get_the_excerpt(); ?>
 						</p>
-						<a class="featurette__link h2-font primary-color" href="<?php the_permalink() ?>" title="<?php echo the_title(); ?>">Läs mer</a>
+						<a class="featurette__link h2-font primary-color" href="<?php the_permalink() ?>" title="<?php echo the_title(); ?>">Read more</a>
 					</div>
 				</div>
 				<hr class="featurette__divider accent-color-two">
