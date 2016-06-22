@@ -16,7 +16,7 @@
 			<?php $query_contact = new WP_Query( 'post_type=contact&posts_per_page=1' ); ?>
 
 			<?php if( $query_about->have_posts() && $query_contact->have_posts() ) : ?>
-				<div class="hidden-sm-down col-md-4 col-lg-4 p-y-1 about secondary-color nav-font">
+				<div class="hidden-sm-down text-center col-md-4 col-lg-4 p-y-1 about secondary-color nav-font">
 			<?php elseif( $query_about->have_posts() && $query_contact->have_posts() == false ) : ?>
 				<div class="hidden-sm-down col-md-6 col-lg-6 p-y-1 about secondary-color nav-font">
 			<?php else :  ?>
@@ -26,8 +26,10 @@
 			<?php if( $query_about->have_posts() ) : while( $query_about->have_posts() ) : $query_about->the_post(); ?>
 				<?php $title= str_ireplace('"', '', trim(get_the_title())); ?>
 				<?php $desc= str_ireplace('"', '', trim(get_the_content())); ?>
+
 					<p><strong><?= $title ?></strong></p>
 					<p><?= $desc; ?></p><br>
+
 			<?php endwhile; endif; ?>
 				</div> <!-- .about -->
 
