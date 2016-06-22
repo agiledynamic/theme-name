@@ -892,8 +892,12 @@ a {
   .item:hover .item__caption {
     bottom: -15px; }
   /* SHOWCASE SINGLE */
+  .showcase-single__header {
+    height: 60vh; }
   .showcase-single__title {
     font-size: 3.6em; }
   /* SINGLE POST */
   .single__title {
-    font-size: 3.6em; } }
+    font-size: 3.6em; }
+  .single-single__header {
+    height: 60vh; } }
