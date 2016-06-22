@@ -95,6 +95,7 @@ function cpt_showcase() {
 		'show_ui'				=> true,
 		'rewrite'				=> true,
 		'query_var' 			=> true,
+		'show_in_menu'			=> true,
 		'menu_postition'		=> 5,
 		'menu_icon'				=> 'dashicons-portfolio',
 		'supports'				=> array(

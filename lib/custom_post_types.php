@@ -36,7 +36,8 @@ function cpt_about() {
 		'show_ui'				=> true,
 		'rewrite'				=> true,
 		'query_var' 			=> true,
-		'menu_postition'		=> 5,
+		'show_in_menu'			=> true,
+		'menu_postition'		=> 25,
 		'posts_per_page'		=> 1,
 		'supports'				=> array(
 									'title', 
@@ -53,16 +54,16 @@ add_action('init', 'cpt_contact');
 function cpt_contact(){
 
 	$labels = array(
-		'name'				=> _x('Contact', 'Get in contact'),
-		'menu_name'			=> _x('Contact', 'admin menu'),
-		'add_new'			=> _x('Add contact info', 'item'),
-		'add_new_item'		=> __('Add contact info ..  you'),
-		'edit_item'			=> __('Edit Item'),
-		'new_item'			=> __('New Item'),	
-		'view_item'			=> __('View Item'),
+		'name'					=> _x('Contact', 'Get in contact'),
+		'menu_name'				=> _x('Contact', 'admin menu'),
+		'add_new'				=> _x('Add contact info', 'item'),
+		'add_new_item'			=> __('Add contact info ..  you'),
+		'edit_item'				=> __('Edit Item'),
+		'new_item'				=> __('New Item'),	
+		'view_item'				=> __('View Item'),
 		'search_items'			=> __('Search Items'),
-		'not_found'			=> __('No items found'),
-		'not_found_in_trash'		=> __('Nothing found')
+		'not_found'				=> __('No items found'),
+		'not_found_in_trash'	=> __('Nothing found')
 	);
 	$args = array(
 		'labels'				=> $labels,
@@ -71,16 +72,13 @@ function cpt_contact(){
 		'hierarchical'			=> false,
 		'public'				=> false,
 		'publicly_queryble'		=> true,
-		'show_ui'			=> true,
-		'rewrite'			=> true,
+		'show_ui'				=> true,
+		'rewrite'				=> true,
 		'query_var' 			=> true,
-		'menu_postition'		=> 5,
+		'show_in_menu'			=> true,
+		'menu_postition'		=> 25,
 		'posts_per_page'		=> 1,
-		'supports'				=> array(
-									'title', 
-									'	', 
-									''
-								)
+		'supports'				=> 'title' 
 	);
 	register_post_type( 'contact', $args );
 }
