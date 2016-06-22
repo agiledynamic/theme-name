@@ -12,10 +12,22 @@ get_header(); ?>
 <div id="page" class="site">
 		<div id="content" class="site-content" role="document">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		<nav class="switch-post">
-			<a href="#" class="prev-post" alt="Link to next post."></a>
-			<a href="#" class="next-post" alt="Link to previous post."></a>
-		</nav>
+			<nav class="switch-post">
+				<?php 
+					$prev_post = get_previous_post();
+					if($prev_post) {
+	   				$prev_title = strip_tags(str_replace('"', '', $prev_post->post_title)); 
+	   			?>
+	   				<a rel="prev" href="<?= get_permalink($prev_post->ID) ?>" title="<?=$prev_title?>" class="prev-post"></a>
+	            <?php } ?>
+	           	<?php 
+					$next_post = get_next_post();
+					if($next_post) {
+	   				$next_title = strip_tags(str_replace('"', '', $next_post->post_title)); 
+	   			?>
+	   				<a rel="next" href="<?= get_permalink($next_post->ID) ?>" title="<?=$next_title?>" class="next-post"></a>
+	            <?php } ?>
+			</nav>
 			<header id="header" class="single__header" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');">
 				<div class="single__text">
 					<h1 class="single__title text-xs-center h1-font primary-color">
