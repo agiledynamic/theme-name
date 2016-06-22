@@ -504,17 +504,16 @@ textarea {
   .contact-adress adress span {
     display: block; }
 
-.contact-socialmedia {
-  margin: 0 auto; }
-  .contact-socialmedia ul {
-    margin: 0;
-    padding: 0;
-    text-align: center; }
-    .contact-socialmedia ul li {
-      list-style: none;
-      margin: 5px 6px 5px 6px; }
-      .contact-socialmedia ul li a {
-        border-bottom: none; }
+.contact-socialmedia ul {
+  margin: 0;
+  padding: 0; }
+  .contact-socialmedia ul li {
+    list-style: none;
+    margin: 5px 6px 5px 6px; }
+    .contact-socialmedia ul li a {
+      border-bottom: none; }
+    .contact-socialmedia ul li i {
+      margin-right: 5px; }
 
 /* DEBUGGING */
 html, body {
@@ -849,7 +848,7 @@ a {
   /* NAVIGATION */
   .switch-post {
     display: block; }
-    .switch-post > .prev-post {
+    .switch-post > .next-post {
       position: fixed;
       z-index: 999;
       width: 38px;
@@ -858,7 +857,7 @@ a {
       top: 50vh;
       transform: translate(0, -50%);
       background: url("../images/prev-black.png"); }
-    .switch-post > .next-post {
+    .switch-post > .prev-post {
       position: fixed;
       z-index: 999;
       width: 38px;
