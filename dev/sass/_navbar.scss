@@ -1,6 +1,9 @@
 .navbar {
   background-color: $white;
   width: 100%;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 .navbar-brand {
   @include fontBold;
