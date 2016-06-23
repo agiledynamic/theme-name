@@ -42,7 +42,7 @@
 				<figure class="wrapper">
 					<ul>
 					<?php while ($slider_query -> have_posts()) : $slider_query -> the_post(); ?>
-						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');" alt="">
+						<li class="slider-item <?php if ($slide == 1) echo 'active'; ?>" style="background-image: url('<?php the_post_thumbnail_url('full') ?>');">
 							<div class="navigation">
 								<a href="#" class="prev secondary-color"></a>
 								<a href="#" class="next secondary-color"></a>
