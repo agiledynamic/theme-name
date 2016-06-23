@@ -82,13 +82,13 @@ function customs_scripts() {
 	wp_enqueue_style('extra-slider', get_template_directory_uri() . '/css/extra.slider.css');
 
 	/* Font Awsome */
-	wp_enqueue_style('Font Awsome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css');
+	wp_enqueue_style('FontAwsome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css');
 
 	/* Awesome Cursor */
-	wp_enqueue_script( 'Awesome Cursor', 'https://cdn.rawgit.com/jwarby/jquery-awesome-cursor/master/dist/jquery.awesome-cursor.min.js', array(), 'null', true );
+	wp_enqueue_script( 'AwesomeCursor', 'https://cdn.rawgit.com/jwarby/jquery-awesome-cursor/master/dist/jquery.awesome-cursor.min.js', array(), 'null', true );
 
 	/* Google Fonts */
-	wp_enqueue_style('Source Sans Pro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');
+	wp_enqueue_style('SourceSansPro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');
 	wp_enqueue_style('Alegreya', 'https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i');
 	wp_enqueue_style('Inconsolata', 'https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
