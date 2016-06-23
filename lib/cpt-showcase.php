@@ -104,7 +104,6 @@ function cpt_showcase() {
 									'excerpt', 
 									'comments',
 									'thumbnail', 
-									'custom-fields', 
 									'page-attributes'
 								)
 	);

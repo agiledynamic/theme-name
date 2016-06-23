@@ -496,13 +496,8 @@ textarea {
   .navbar-nav .nav-link + .nav-link {
     margin-left: 1rem; } }
 
-.about {
-  color: grey; }
-
-.contact-adress {
-  color: grey; }
-  .contact-adress adress span {
-    display: block; }
+.adress span {
+  display: block; }
 
 .contact-socialmedia ul {
   margin: 0;
